@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/19 19:37:33 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/19 19:51:41 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	atoi_tester(char *s)
 	int		b;
 
 	a = atoi(s);
-	b = ft_atoi(s);
+	b = ft_atoi("te");
 	printf("-------------------------------------\ntesting \"%s\"\n", s);
 	printf("atoi: %i | ", a);
 	printf("ft_atoi: %i", b);

@@ -6,7 +6,7 @@
 #    By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/19 00:08:57 by rsiqueir         ###   ########.fr        #
+#    Updated: 2021/05/19 20:36:41 by rsiqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,3 +75,5 @@ fclean:		clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+//facilitar o processo para outros usuários ao escrever MAKE BUILD=1
