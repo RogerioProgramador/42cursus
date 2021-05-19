@@ -1,4 +1,4 @@
-SRC = main_strlen.c
+SRC = main_bzero.c
 
 all:
 

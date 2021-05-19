@@ -1,68 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_atoi.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/19 02:50:37 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/05/19 02:50:38 by rsiqueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
-/*
-int main(void)
+
+void atoi_tester(char *s)
 {
 	int a;
 	int b;
 
-	a = atoi("    ---++++10");
-	b = ft_atoi("    ---++++10");
-	printf("original atoi: %i\n", a);
-	printf("new atoi: %i\n", b);
-
-	a = atoi("-10");
-	b = ft_atoi("-10");
-	printf("original atoi: %i\n", a);
-	printf("new atoi: %i\n", b);
-
-	a = atoi("20");
-	b = ft_atoi("20");
-	printf("original atoi: %i\n", a);
-	printf("new atoi: %i\n", b);
-
-	a = atoi("        10");
-	b = ft_atoi("        10");
-	printf("original atoi: %i\n", a);
-	printf("new atoi: %i\n", b);
-
-	a = atoi("0");
-	b = ft_atoi("0");
-	printf("original atoi: %i\n", a);
-	printf("new atoi: %i\n", b);
+	a = atoi(s);
+	b = ft_atoi(s);
+	printf("-------------------------------------\ntesting \"%s\"\n", s);
+	printf("atoi: %i | ", a);
+	printf("ft_atoi: %i", b);
+	if (a == b)
+		printf("          OK\n");
+	else
+		printf("          KO\n");
 }
-*/
-/*int		ft_atoi(const char *str)
-{
-	int	res;
-	int	sign;
-	int	i;
-
-	res = 0;
-	sign = 1;
-	i = 0;
-	while ((*str == '\t') || (*str == '\v') || (*str == '\f') || (*str == '\r')
-		|| (*str == ' ') || (*str == '\n'))
-		str++;
-	if (*str == '-')
-	{
-		sign *= -1;
-		str++;
-	}
-	while (*str && str[i] >= '0' && *str <= '9')
-	{
-		res = (res * 10) + (*str - '0');
-		str++;
-	}
-	return (res * sign);
-}*/
 
 int main(void)
 {
-    int a;
-    int b;
-
-    a = atoi("20");
-    b = ft_atoi("20");
-    printf("original atoi: %i\n", a);
-    printf("new atoi: %i\n", b);
+	atoi_tester("0");
+	atoi_tester("1");
+	atoi_tester("10");
+	atoi_tester("11");
+	atoi_tester("-10");
+	atoi_tester("+-10");
+	atoi_tester("---------+10");
+	atoi_tester("       --1");
+	atoi_tester("       +-1");
+	atoi_tester("        1");
+	atoi_tester("");
 }

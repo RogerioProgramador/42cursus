@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_strlen.c                                      :+:      :+:    :+:   */
+/*   main_bzero.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 02:50:53 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/19 02:50:54 by rsiqueir         ###   ########.fr       */
+/*   Created: 2021/05/19 02:50:45 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/05/19 03:11:40 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-void strlen_tester(char *s)
+void bzero_tester(unsigned char *s, size_t n)
 {
-	int a;
-	int b;
+	char *a;
+	void *b;
+	int c;
+	int d;
 
-	a = strlen(s);
-	b = ft_strlen(s);
-	printf("------------------------\ntesting \"%s\"\n", s);
-	printf("strlen: %i | ", a);
-	printf("ft_strlen: %i", b);
+	c = ft_strlen(s);
+	d = 0;
+	ft_bzero(s, n);
+	printf("-------------------------------------\ntesting \"%s\",%li\n", s, n);
+	while (d < c)
+	{
+		printf("bzero: %c | ", s[d]);
+		d++;
+	}
+	while (d < c)
+	{
+		printf("bzero: %c | ", s[d]);
+		d++;
+	}
 	if (a == b)
 		printf("          OK\n");
 	else
 		printf("          KO\n");
-
 }
-
 
 int main(void)
 {
-	strlen_tester("a");
-	strlen_tester("1");
-	strlen_tester("teste");
-	strlen_tester("");
-	strlen_tester("teste com espaços");
+	ft_bzero("teste", 4);
+
+
 }
