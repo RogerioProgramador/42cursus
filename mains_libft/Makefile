@@ -1,4 +1,4 @@
-SRC = main_bzero.c
+SRC = allmains.c
 
 all:
 
