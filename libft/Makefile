@@ -6,7 +6,7 @@
 #    By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/20 02:35:29 by rsiqueir         ###   ########.fr        #
+#    Updated: 2021/05/20 10:54:40 by rsiqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ AR = ar rcs
 LIB = ranlib
 RM = rm -f
 RMDIR = rmdir
+
 SRCS =	ft_memset.c		\
 		ft_bzero.c		\
 		ft_memcpy.c		\

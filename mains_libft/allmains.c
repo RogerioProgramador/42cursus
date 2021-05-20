@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 03:17:42 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 10:39:28 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,60 @@ void isalnum_tester(int a)
 		printf("        KO\n");
 }
 
+void isalpha_tester(int a)
+{
+	int b;
+	int c;
+
+	b = isalpha(a);
+	c = ft_isalpha(a);
+	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("isalpha: %i | ", b);
+	printf("ft_isalpha: %i", c);
+	if (b > 0 && c >0)
+		printf("        OK\n");
+	else if (b == 0 && c == 0)
+		printf("        OK\n");
+	else
+		printf("        KO\n");
+}
+
+void isascii_tester(int a)
+{
+	int b;
+	int c;
+
+	b = isascii(a);
+	c = ft_isascii(a);
+	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("isascii: %i | ", b);
+	printf("ft_isascii: %i", c);
+	if (b > 0 && c >0)
+		printf("        OK\n");
+	else if (b == 0 && c == 0)
+		printf("        OK\n");
+	else
+		printf("        KO\n");
+}
+
+void isdigit_tester(int a)
+{
+	int b;
+	int c;
+
+	b = isdigit(a);
+	c = ft_isdigit(a);
+	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("isdigit: %i | ", b);
+	printf("ft_isdigit: %i", c);
+	if (b > 0 && c >0)
+		printf("        OK\n");
+	else if (b == 0 && c == 0)
+		printf("        OK\n");
+	else
+		printf("        KO\n");
+}
+
 int	main(void)
 {
 	printf("\n////////////////////// ATOI ////////////////////\n");
@@ -204,4 +258,28 @@ int	main(void)
 	isalnum_tester(0);
 	isalnum_tester(' ');
 	isalnum_tester('~');
+
+	printf("\n////////////////////// ISALPHA ///////////////////\n");
+	isalpha_tester(-1);
+	isalpha_tester(0);
+	isalpha_tester('a');
+	isalpha_tester(10);
+	isalpha_tester(' ');
+	isalpha_tester('~');
+
+	printf("\n////////////////////// ISASCII ///////////////////\n");
+	isascii_tester(-1);
+	isascii_tester(0);
+	isascii_tester(1);
+	isascii_tester(10);
+	isascii_tester(' ');
+	isascii_tester(128);
+
+	printf("\n////////////////////// ISDIGIT ///////////////////\n");
+	isdigit_tester(-1);
+	isdigit_tester(0);
+	isdigit_tester('a');
+	isdigit_tester('9');
+	isdigit_tester(' ');
+	isdigit_tester('~');
 }
