@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 13:14:08 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 20:41:50 by rsiqueir         ###   ########.fr       */
+/*   Created: 2021/05/20 20:26:27 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/05/20 20:42:14 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dest2;
+	int		a;
+	int		b;
+	char	*pointer;
 
-	dest2 = dest;
-	while (*src)
+	a = 0;
+	b = 0;
+	pointer = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!(pointer))
+		return (NULL);
+	while (s1[a])
 	{
-		*dest++ = *src++;
+		pointer[a] = s1[a];
+		a++;
 	}
-	*dest = '\0';
-	dest = dest2;
-	return (dest);
-}
-
-char	*ft_strdup(char *s1)
-{
-	char	*dest;
-
-	dest = malloc(ft_strlen(s1) + 1);
-	if (!(dest))
-		return(NULL);
-	if (dest == 0)
-		return (0);
-	ft_strcpy(dest, s1);
-	return (dest);
+	while (s2[b])
+	{
+		pointer[a] = s2[b];
+		b++;
+		a++;
+	}
+	pointer[a] = '\0';
+	return (pointer);
 }

@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main_strjoin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 13:14:08 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 20:41:50 by rsiqueir         ###   ########.fr       */
+/*   Created: 2021/05/20 20:35:32 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/05/20 20:44:09 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+void	strjoin_tester(char const *s1, char const *s2)
 {
-	char	*dest2;
+	char *pointer;
 
-	dest2 = dest;
-	while (*src)
-	{
-		*dest++ = *src++;
-	}
-	*dest = '\0';
-	dest = dest2;
-	return (dest);
+	pointer = ft_strjoin(s1, s2);
+	printf("-------------------------------------------------------\n");
+	printf("first word: %s\n", s1);
+	printf("second word: %s\n", s2);
+	printf("result: %s\n", pointer);
 }
 
-char	*ft_strdup(char *s1)
+int	main(void)
 {
-	char	*dest;
-
-	dest = malloc(ft_strlen(s1) + 1);
-	if (!(dest))
-		return(NULL);
-	if (dest == 0)
-		return (0);
-	ft_strcpy(dest, s1);
-	return (dest);
+	strjoin_tester("42","sp");
+	strjoin_tester("teste","");
+	strjoin_tester("a","b");
 }

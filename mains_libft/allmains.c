@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 19:32:20 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 20:46:27 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,6 +258,16 @@ void strtrim_tester(char *a, char *b)
 	printf("%s\n", pointer);
 }
 
+void	strjoin_tester(char const *s1, char const *s2)
+{
+	char *pointer;
+
+	pointer = ft_strjoin(s1, s2);
+	printf("-------------------------------------------------------\n");
+	printf("first word: %s\n", s1);
+	printf("second word: %s\n", s2);
+	printf("result: %s\n", pointer);
+}
 
 int	main(void)
 {
@@ -338,11 +348,16 @@ int	main(void)
 	substr_tester("teste de substr", 4, 3);
 	substr_tester("teste de substr", 10, 3);
 
+	printf("\n////////////////////// STRJOIN ///////////////////\n");
+	strjoin_tester("42","sp");
+	strjoin_tester("teste","");
+	strjoin_tester("a","b");
+
 	printf("\n////////////////////// STRTRIM ///////////////////\n");
 	strtrim_tester("zXzXzXXXXbbbbbbbbtestezXbzbXzXbz", "zXb");
 	strtrim_tester("AtesteA", "A");
 	strtrim_tester("AteAsteA", "A");
 	strtrim_tester("AtesteA", " ");
 	strtrim_tester("AtesteA", "");
-	
+
 }
