@@ -6,11 +6,12 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/19 19:51:41 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 03:17:42 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include <ctype.h>
 
 void	atoi_tester(char *s)
 {
@@ -18,12 +19,12 @@ void	atoi_tester(char *s)
 	int		b;
 
 	a = atoi(s);
-	b = ft_atoi("te");
-	printf("-------------------------------------\ntesting \"%s\"\n", s);
+	b = ft_atoi(s);
+	printf("-------------------------------------------------------\ntesting \"%s\"\n", s);
 	printf("atoi: %i | ", a);
 	printf("ft_atoi: %i", b);
 	if (a == b)
-		printf("          OK\n");
+		printf("          OK!\n");
 	else
 		printf("          KO\n");
 }
@@ -35,11 +36,11 @@ void	strlen_tester(char *s)
 
 	a = strlen(s);
 	b = ft_strlen(s);
-	printf("-------------------------------------\ntesting \"%s\"\n", s);
+	printf("-------------------------------------------------------\ntesting \"%s\"\n", s);
 	printf("strlen: %i | ", a);
 	printf("ft_strlen: %i", b);
 	if (a == b)
-		printf("          OK\n");
+		printf("          OK!\n");
 	else
 		printf("          KO\n");
 }
@@ -88,9 +89,9 @@ void	bzero_tester(char *s, size_t n)
 		u++;
 	}
 	if (b == 0)
-		printf("          OK");
+		printf("         OK!");
 	else
-		printf("          KO");
+		printf("         KO");
 	printf("\n");
 }
 
@@ -107,7 +108,7 @@ void calloc_tester(size_t count, size_t size)
 		j++;
 	if(!(b = ft_calloc(count, size)))
 		j++;
-	printf("-----------------------------------------------\n");
+	printf("-------------------------------------------------------\n");
 	printf("testing with count = %li and size = %li\n", count, size);
 	printf("calloc:");
 	while (i < size * count)
@@ -140,15 +141,32 @@ void calloc_tester(size_t count, size_t size)
 		b++;
 	}
 	if (j == 0)
-		printf ("         OK\n");
+		printf ("         OK!\n");
 	else
 		printf("          KO\n");
 }
 
+void isalnum_tester(int a)
+{
+	int b;
+	int c;
+
+	b = isalnum(a);
+	c = ft_isalnum(a);
+	printf("-------------------------------------------------------\ntesting \"%i\"\n", a);
+	printf("isalnum: %i | ", b);
+	printf("ft_isalnum: %i", c);
+	if (b > 0 && c >0)
+		printf("        OK!\n");
+	else if (b == 0 && c == 0)
+		printf("        OK!\n");
+	else
+		printf("        KO\n");
+}
 
 int	main(void)
 {
-	printf("\n///////////////// ATOI ////////////////\n");
+	printf("\n////////////////////// ATOI ////////////////////\n");
 	atoi_tester("0");
 	atoi_tester("1");
 	atoi_tester("10");
@@ -161,7 +179,7 @@ int	main(void)
 	atoi_tester("        1");
 	atoi_tester("");
 
-	printf("\n///////////////// BZERO ///////////////\n");
+	printf("\n////////////////////// BZERO ///////////////////\n");
 	bzero_tester("", 6);
 	bzero_tester("teste", 0);
 	bzero_tester("teste", 1);
@@ -169,15 +187,21 @@ int	main(void)
 	bzero_tester("teste", 3);
 	bzero_tester("teste", 4);
 
-	printf("\n///////////////// STRLEN ///////////////\n");
+	printf("\n////////////////////// STRLEN ///////////////////\n");
 	strlen_tester("a");
 	strlen_tester("1");
 	strlen_tester("teste");
 	strlen_tester("");
 	strlen_tester("teste com espaços");
 
-	printf("\n///////////////// CALLOC ///////////////\n");
+	printf("\n////////////////////// CALLOC ///////////////////\n");
 	calloc_tester(1, sizeof(char));
 	calloc_tester(2, sizeof(char));
 	calloc_tester(1, sizeof(int));
+
+	printf("\n////////////////////// ISALNUM ///////////////////\n");
+	isalnum_tester(-1);
+	isalnum_tester(0);
+	isalnum_tester(' ');
+	isalnum_tester('~');
 }

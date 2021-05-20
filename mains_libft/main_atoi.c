@@ -6,16 +6,16 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:37 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/19 03:18:15 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 02:06:29 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-void atoi_tester(char *s)
+void	atoi_tester(char *s)
 {
-	int a;
-	int b;
+	int	a;
+	int	b;
 
 	a = atoi(s);
 	b = ft_atoi(s);
@@ -28,7 +28,7 @@ void atoi_tester(char *s)
 		printf("          KO\n");
 }
 
-int main(void)
+int		main(void)
 {
 	atoi_tester("0");
 	atoi_tester("1");

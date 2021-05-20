@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 18:31:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/19 19:06:06 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 03:10:46 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void calloc_tester(size_t count, size_t size)
 		j++;
 	if(!(b = ft_calloc(count, size)))
 		j++;
-	printf("-----------------------------------------------\n");
+	printf("-------------------------------------------------------\n");
 	printf("testing with count = %li and size = %li\n", count, size);
 	printf("calloc:");
 	while (i < size * count)
