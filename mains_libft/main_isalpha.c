@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:22:42 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 10:24:27 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 11:04:34 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void isalpha_tester(int a)
 	else
 		printf("        KO\n");
 }
-
 
 int main (void)
 {

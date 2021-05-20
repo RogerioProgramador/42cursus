@@ -6,7 +6,7 @@
 #    By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/20 10:54:40 by rsiqueir         ###   ########.fr        #
+#    Updated: 2021/05/20 15:21:01 by rsiqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,9 @@ SRCS =	ft_memset.c		\
 		ft_toupper.c	\
 		ft_tolower.c	\
 		ft_calloc.c		\
-		ft_strdup.c
+		ft_strdup.c		\
+		ft_substr.c		\
+		ft_strtrim.c
 #.c to .o
 ifeq (${BUILD},1)
 OBJ =		${SRCS:%.c=build/%.o}

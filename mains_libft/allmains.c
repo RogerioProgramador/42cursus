@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 10:39:28 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:32:20 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,13 +171,13 @@ void isalpha_tester(int a)
 
 	b = isalpha(a);
 	c = ft_isalpha(a);
-	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("-------------------------------------------------------\ntesting \"%i\"\n", a);
 	printf("isalpha: %i | ", b);
 	printf("ft_isalpha: %i", c);
 	if (b > 0 && c >0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else if (b == 0 && c == 0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else
 		printf("        KO\n");
 }
@@ -189,13 +189,13 @@ void isascii_tester(int a)
 
 	b = isascii(a);
 	c = ft_isascii(a);
-	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("-------------------------------------------------------\ntesting \"%i\"\n", a);
 	printf("isascii: %i | ", b);
 	printf("ft_isascii: %i", c);
 	if (b > 0 && c >0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else if (b == 0 && c == 0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else
 		printf("        KO\n");
 }
@@ -207,19 +207,63 @@ void isdigit_tester(int a)
 
 	b = isdigit(a);
 	c = ft_isdigit(a);
-	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("-------------------------------------------------------\ntesting \"%i\"\n", a);
 	printf("isdigit: %i | ", b);
 	printf("ft_isdigit: %i", c);
 	if (b > 0 && c >0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else if (b == 0 && c == 0)
-		printf("        OK\n");
+		printf("        OK!\n");
 	else
 		printf("        KO\n");
 }
+void	substr_tester(char const *s, unsigned int start, size_t len)
+{
+	char *s1;
+
+	s1 = ft_substr(s, start, len);
+
+	unsigned int count;
+	char *pointer;
+
+	count = 0;
+	pointer = malloc(len + 1);
+	while (count < len)
+	{
+		pointer[count] = s[count + start];
+		count++;
+	}
+	pointer[len] = '\0';
+
+	int a = ft_strncmp(pointer, s1, len);
+
+	printf("-------------------------------------------------------\ntesting with start = \"%i\" and len = \"%li\"\n", start, len);
+	printf("string: |%s|\n", s);
+	printf("substring: |%s|\n", pointer);
+	printf("ft_substr: |%s|", s1);
+	if ( a == 0)
+		printf("          OK\n");
+	else
+		printf("          KO\n");
+}
+
+void strtrim_tester(char *a, char *b)
+{
+	char	*pointer;
+
+	pointer = ft_strtrim(a, b);
+	printf("-------------------------------------------------------\n");
+	printf("string: %s\n", a);
+	printf("set: %s\n", b);
+	printf("%s\n", pointer);
+}
+
 
 int	main(void)
 {
+	printf("----------------------------------------------------------\n");
+	printf("|              Part 1 - Libc Functions                   |\n");
+	printf("----------------------------------------------------------\n");
 	printf("\n////////////////////// ATOI ////////////////////\n");
 	atoi_tester("0");
 	atoi_tester("1");
@@ -282,4 +326,23 @@ int	main(void)
 	isdigit_tester('9');
 	isdigit_tester(' ');
 	isdigit_tester('~');
+
+	printf ("\n\n\n");
+	printf("----------------------------------------------------------\n");
+	printf("|              Part 2 - Additional Functions             |\n");
+	printf("----------------------------------------------------------\n");
+
+	printf("\n////////////////////// SUBSTR ///////////////////\n");
+	substr_tester("teste de substr", 9, 6);
+	substr_tester("teste de substr", 0, 12);
+	substr_tester("teste de substr", 4, 3);
+	substr_tester("teste de substr", 10, 3);
+
+	printf("\n////////////////////// STRTRIM ///////////////////\n");
+	strtrim_tester("zXzXzXXXXbbbbbbbbtestezXbzbXzXbz", "zXb");
+	strtrim_tester("AtesteA", "A");
+	strtrim_tester("AteAsteA", "A");
+	strtrim_tester("AtesteA", " ");
+	strtrim_tester("AtesteA", "");
+	
 }
