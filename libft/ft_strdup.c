@@ -6,13 +6,13 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 13:14:08 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 20:41:50 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:01:40 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	char	*dest2;
 
@@ -32,7 +32,7 @@ char	*ft_strdup(char *s1)
 
 	dest = malloc(ft_strlen(s1) + 1);
 	if (!(dest))
-		return(NULL);
+		return (NULL);
 	if (dest == 0)
 		return (0);
 	ft_strcpy(dest, s1);

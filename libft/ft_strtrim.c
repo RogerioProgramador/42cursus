@@ -6,13 +6,13 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:19:54 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 20:40:22 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:00:14 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countfirstpattern(char *s1, char *set)
+static int	countfirstpattern(char *s1, char *set)
 {
 	int	a;
 	int	b;
@@ -40,7 +40,7 @@ int	countfirstpattern(char *s1, char *set)
 	return (count);
 }
 
-int	countlastpattern(char *s1, char *set)
+static int	countlastpattern(char *s1, char *set)
 {
 	int	a;
 	int	b;
