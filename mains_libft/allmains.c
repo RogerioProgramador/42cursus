@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 21:22:34 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/21 12:46:46 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,6 +269,24 @@ void	strjoin_tester(char const *s1, char const *s2)
 	printf("result: %s\n", pointer);
 }
 
+void	isprint_tester(int a)
+{
+	int b;
+	int c;
+
+	b = isprint(a);
+	c = ft_isprint(a);
+	printf("-------------------------------------\ntesting \"%i\"\n", a);
+	printf("isprint: %i | ", b);
+	printf("ft_isprint: %i", c);
+	if (b > 0 && c >0)
+		printf("        OK!\n");
+	else if (b == 0 && c == 0)
+		printf("        OK!\n");
+	else
+		printf("        KO\n");
+}
+
 int	main(void)
 {
 	printf("----------------------------------------------------------\n");
@@ -336,6 +354,13 @@ int	main(void)
 	isdigit_tester('9');
 	isdigit_tester(' ');
 	isdigit_tester('~');
+
+	printf("\n////////////////////// ISPRINT ///////////////////\n");
+	isprint_tester(1);
+	isprint_tester(10);
+	isprint_tester(32);
+	isprint_tester(65);
+	isprint_tester(127);
 
 	printf ("\n\n\n");
 	printf("----------------------------------------------------------\n");
