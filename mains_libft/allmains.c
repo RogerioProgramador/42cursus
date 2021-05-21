@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 20:46:27 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:22:34 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -359,5 +359,4 @@ int	main(void)
 	strtrim_tester("AteAsteA", "A");
 	strtrim_tester("AtesteA", " ");
 	strtrim_tester("AtesteA", "");
-
 }
