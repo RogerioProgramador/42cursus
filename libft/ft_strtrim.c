@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:19:54 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 21:00:14 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/24 14:54:47 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	countlastpattern(char *s1, char *set)
 
 	a = ft_strlen(s1) - 1;
 	count = 0;
-	while (a > 0)
+	while (a >= 0)
 	{
 		b = 0;
 		while (set[b])
@@ -75,9 +75,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		c;
 	char	*pointer;
 
+
 	a = countfirstpattern((char *)s1, (char *)set);
 	b = countlastpattern((char *)s1, (char *)set);
-	pointer = malloc(ft_strlen(s1) + 1 - a - b);
+	c = ft_strlen(s1) + 1 - a - b;
+	pointer = malloc(c);
 	if (!(pointer))
 		return (NULL);
 	c = 0;

@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 13:13:11 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 11:12:38 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/23 12:05:52 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	pointer = malloc(count * size);
 	if (pointer == NULL)
 		return (NULL);
-	ft_bzero(pointer, count);
+	ft_bzero(pointer, count * size);
 	return (pointer);
 }

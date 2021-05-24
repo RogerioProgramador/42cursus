@@ -1,4 +1,4 @@
-SRC = main_memccpy.c
+SRC = main_calloc.c
 
 all:
 
