@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:19:54 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/24 14:54:47 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/25 03:09:44 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		c;
 	char	*pointer;
 
-
 	a = countfirstpattern((char *)s1, (char *)set);
 	b = countlastpattern((char *)s1, (char *)set);
-	c = ft_strlen(s1) + 1 - a - b;
+	c = ft_strlen(s1) - a - b;
+	if (c <= 0)
+		return ("");
 	pointer = malloc(c);
 	if (!(pointer))
 		return (NULL);

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 13:14:00 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/24 22:21:58 by rsiqueir         ###   ########.fr       */
+/*   Created: 2021/05/25 10:59:12 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/05/25 11:18:42 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	a;
+	char	*pointer;
+	int		i;
 
-	a = 0;
-	while (a < len)
+	if (s == NULL || f == NULL)
+		return (NULL);
+	pointer = malloc(ft_strlen(s) + 1);
+	pointer[strlen(s)] = 0;
+	i = 0;
+	while (s[i])
 	{
-		((unsigned char *)b)[a] = (unsigned char)c;
-		a++;
+		pointer[i] = f(i, s[i]);
+		i++;
 	}
-	return (b);
+	return (pointer);
 }

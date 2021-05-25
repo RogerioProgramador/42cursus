@@ -1,4 +1,4 @@
-SRC = main_calloc.c
+SRC = main_itoa.c
 
 all:
 
@@ -8,7 +8,7 @@ else
 	cd ../libft; make
 endif
 
-	gcc -static ${SRC} -L../libft -I/libft -lft
+	gcc -g -static ${SRC} -L../libft -I/libft -lft
 
 clean:
 

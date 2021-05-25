@@ -6,7 +6,7 @@
 #    By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/23 06:03:22 by rsiqueir         ###   ########.fr        #
+#    Updated: 2021/05/25 11:53:49 by rsiqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,12 @@ SRCS =	ft_memset.c		\
 		ft_substr.c		\
 		ft_strtrim.c	\
 		ft_strjoin.c	\
-		ft_split.c
+		ft_split.c		\
+		ft_itoa.c		\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_putnbr_fd.c
 
 #.c to .o
 ifeq (${BUILD},1)
@@ -62,7 +67,7 @@ ${NAME}:	${OBJ}
 ifeq (${BUILD},1)
 build/%.o:		%.c
 			@mkdir -p build
-			${CC}	${CFLAGS}	$< -o $@
+			${CC}	-g ${CFLAGS}	$< -o $@
 else
 %.o:		%.c
 			${CC}	${CFLAGS}	$< -o $@
