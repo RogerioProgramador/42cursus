@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 00:56:21 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/25 03:17:15 by rsiqueir         ###   ########.fr       */
+/*   Created: 2021/05/26 15:12:15 by rogeriorslf       #+#    #+#             */
+/*   Updated: 2021/05/26 15:12:17 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

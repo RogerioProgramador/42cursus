@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 13:14:12 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/26 14:43:43 by rogeriorslf      ###   ########.fr       */
+/*   Created: 2021/05/26 16:33:02 by rogeriorslf       #+#    #+#             */
+/*   Updated: 2021/05/26 17:53:37 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	size_t	l;
 
-	i = 0;
-	while (dst[i])
-		i++;
-	while (src[i] && i < (dstsize - 1))
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
+	k = 0;
+	l = i > dstsize;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	if (dstsize < i)
+		j += dstsize;
+	else
+		j += i;
+	while (src[k] && i < (dstsize - 1))
 	{
-		dst[i] = src[i];
+		dst[i] = src[k];
 		i++;
+		k++;
 	}
-	dst[i] = '\0';
-	return (i);
+	if (l == 0)
+		dst[i] = '\0';
+	return (j);
 }
-
-int	main(void)
-{
-	char dst[11] = {'t','e','s','t','e','\0','\0','\0','\0','\0','\0'};
-	char src[6] = {'c','a','r','r','o','\0'};
-	int i = ft_strlcat(dst,src, 11);
-	printf("%i %s\n", i, dst);
-}
-/*
-Quando eu não concateno, o dst[i] ='\0'; não ocorre.
-Concatena o que dá e coloca 0.
-*/
