@@ -6,7 +6,7 @@
 /*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:12:22 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/25 02:56:16 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:13:35 by rsiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void split_tester(char *b, char c)
 int		main(void)
 {
 	split_tester(",,,teste,,,testando,,,", ',');
-	split_tester("  ", ' ');
-	split_tester(",,,teste,,,testando,,,", ' ');
+	split_tester("  ", ' ');//entregar nulo
+	split_tester(",,,teste,,,testando,,,", ' ');//ok
 	split_tester("   Testandozfunção split   ", 'z');
 	split_tester("   Testando função split   ", ' ');
 	split_tester("   Testando função split   ", ' ');

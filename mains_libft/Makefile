@@ -1,4 +1,4 @@
-SRC = main_itoa.c
+SRC = main_split.c
 
 all:
 
