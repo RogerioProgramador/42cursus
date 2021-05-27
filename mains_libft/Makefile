@@ -1,4 +1,4 @@
-SRC = main_split.c
+SRC = main_strtrim.c
 
 all:
 

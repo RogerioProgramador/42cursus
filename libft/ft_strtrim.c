@@ -3,94 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:19:54 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/25 03:09:44 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/27 03:32:59 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	countfirstpattern(char *s1, char *set)
+char	*ft_trim(char *s1, char *set)
 {
-	int	a;
-	int	b;
-	int	count;
+	int	i;
+	int	j;
 
-	a = 0;
-	count = 0;
-	while (s1[a])
-	{
-		b = 0;
-		while (set[b])
-		{
-			if (s1[a] != set[b])
-				b++;
-			else if (s1[a] == set[b])
-			{
-				count++;
-				break ;
-			}
-			if (set[b] == '\0')
-				return (count);
-		}
-		a++;
-	}
-	return (count);
+	i = -1;
+	j = 0;
+	while (set[++i])
+		if (*s1 == set[i])
+			j++;
+	if (j != 0)
+		return (ft_trim(++s1, set));
+	return (s1);
 }
 
-static int	countlastpattern(char *s1, char *set)
+char	*ft_mirt(char *s1, char *set)
 {
-	int	a;
-	int	b;
-	int	count;
+	int	i;
+	int	j;
 
-	a = ft_strlen(s1) - 1;
-	count = 0;
-	while (a >= 0)
-	{
-		b = 0;
-		while (set[b])
-		{
-			if (s1[a] != set[b])
-				b++;
-			else if (s1[a] == set[b])
-			{
-				count++;
-				break ;
-			}
-			if (set[b] == '\0')
-				return (count);
-		}
-		a--;
-	}
-	return (count);
+	i = -1;
+	j = 0;
+	while (set[++i])
+		if (*s1 == set[i])
+			j++;
+	if (j != 0)
+		return (ft_mirt(--s1, set));
+	return (s1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		a;
-	int		b;
-	int		c;
-	char	*pointer;
+	size_t	trim_strlen;
+	void	*pointer;
+	void	*trim_pointer;
+	void	*mirt_pointer;
 
-	a = countfirstpattern((char *)s1, (char *)set);
-	b = countlastpattern((char *)s1, (char *)set);
-	c = ft_strlen(s1) - a - b;
-	if (c <= 0)
-		return ("");
-	pointer = malloc(c);
-	if (!(pointer))
-		return (NULL);
-	c = 0;
-	b = ft_strlen(s1) + 1 - a - b;
-	while (b > 1)
-	{
-		pointer[c] = s1[a + c];
-		c++;
-		b--;
-	}
-	pointer[c] = '\0';
+	trim_pointer = ft_trim((char *)s1, (char *)set);
+	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set);
+	trim_strlen = mirt_pointer - trim_pointer + 1;
+	pointer = ft_calloc((trim_strlen + 1), sizeof(char));
+	ft_memccpy(pointer, trim_pointer, 1, trim_strlen);
 	return (pointer);
 }

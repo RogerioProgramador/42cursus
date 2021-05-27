@@ -12,9 +12,10 @@ int	ft_atoi(const char *str)
 	while ((*str == '\t') || (*str == '\v') || (*str == '\f') || (*str == '\r')
 		|| (*str == ' ') || (*str == '\n'))
 		str++;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sign *= -1;
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
 	while (*str && str[i] >= '0' && *str <= '9')

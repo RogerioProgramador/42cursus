@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_atoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:37 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 02:06:29 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/26 21:09:14 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		main(void)
 	atoi_tester("10");
 	atoi_tester("11");
 	atoi_tester("-10");
-	atoi_tester("+-10");
+	atoi_tester("+548");
 	atoi_tester("---------+10");
 	atoi_tester("       --1");
 	atoi_tester("       +-1");
