@@ -6,7 +6,7 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:12:22 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/26 20:59:11 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/05/27 16:25:15 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void split_tester(char *b, char c)
 {
+	/*
 	int i;
 	char **teste;
 
@@ -35,15 +36,29 @@ void split_tester(char *b, char c)
 		printf("\n");
 	}
 	free(teste);
+	*/
+	int i;
+	char **teste;
+	i = 0;
+	teste = ft_split(b, c);
+	printf("-----------------\n");
+	while (teste[i])
+	{
+		printf("%s\n", teste[i]);
+		i++;
+	}
+	free(teste);
 }
+
 
 int		main(void)
 {
-	split_tester(",,,teste,,,testando,,,", ',');
-	split_tester("  ", ' ');//entregar nulo
-	split_tester(",,,teste,,,testando,,,", ' ');//ok
-	split_tester("   Testandozfunção split   ", 'z');
-	split_tester("   Testando função split   ", ' ');
-	split_tester("   Testando função split   ", ' ');
+
+	split_tester("          ", ' ');
+	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	split_tester("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z');
+	split_tester("", 'z');
 }
 

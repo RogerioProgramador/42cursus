@@ -1,87 +1,85 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 15:12:15 by rogeriorslf       #+#    #+#             */
-/*   Updated: 2021/05/26 15:12:17 by rogeriorslf      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static char	**alloc(char *pointer, char delimiter)
+char	**alloc(char *s, char c)
 {
-	char	**array;
-	int		count;
+	char **words;
+	int nb;
 
-	count = 0;
-	while (*pointer)
+	nb = 0;
+	while (*s)
 	{
-		if (*pointer != delimiter)
+		if (*s != c)
 		{
-			while (*pointer != delimiter && *pointer)
-				pointer++;
-			count++;
+			while (*s != c && *s)
+				s++;
+			nb++;
 		}
-		pointer++;
+		s++;
 	}
-	array = (char **)malloc((count + 1) * sizeof(char));
-	if (!array)
+	words = (char **)ft_calloc(nb + 1, sizeof(char *));
+	if (!words)
 		return (NULL);
-	array[count] = 0;
-	return (array);
+	return (words);
 }
 
-static char	*ft_nstrcpy(char *dest, char *src, char c)
+void	ft_nstrcpy(char *dst, char *src, char c)
 {
-	char	*dest2;
-
-	dest2 = dest;
-	while (*src && *src != c)
-		*dest++ = *src++;
-	dest = dest2;
-	return (dest);
+	while (*src != c && *src)
+		*dst++ = *src++;
 }
 
-char	**fill_array(char **splitted, char *pointer, char c)
+void	free_all(char **s)
 {
-	int	i;
-	int	j;
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+void	fill_array(char **splitted,char *s,char c)
+{
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (*pointer)
+	while (*s)
 	{
-		if (*pointer != c)
+		if (*s != c)
 		{
-			while (*pointer != c && *pointer)
+			while (*s != c && *s)
 			{
-				pointer++;
 				i++;
+				s++;
 			}
-			splitted[j] = ft_calloc(i + 1, sizeof(char));
-			ft_nstrcpy(splitted[j], (pointer - i), c);
+			splitted[j] = ft_calloc((i + 1), sizeof(char));
+			if (!splitted[j])
+			{
+				free_all(splitted);
+				splitted = NULL;
+				return ;
+			}
+			ft_nstrcpy(splitted[j++], (s - i), c);
 			i = 0;
-			j++;
 		}
-		if (*pointer)
-			pointer++;
+		if (*s)
+			s++;
 	}
-	return (splitted);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	char	*pointer;
-	char	**splitted;
+	char **splitted;
+	char *pointer;
 
 	pointer = (char *)s;
 	splitted = alloc(pointer, c);
-	if (splitted == NULL)
-		return (NULL);
-	splitted = fill_array(splitted, pointer, c);
+	fill_array(splitted, pointer, c);
 	return (splitted);
 }
+
