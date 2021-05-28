@@ -12,7 +12,7 @@
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -c -Wall -Werror -Wextra
+CFLAGS = -c -Wall -Werror -Wextra -fsanitize=address
 AR = ar rcs
 LIB = ranlib
 RM = rm -f

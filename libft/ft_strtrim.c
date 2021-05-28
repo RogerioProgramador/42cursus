@@ -27,13 +27,15 @@ char	*ft_trim(char *s1, char *set)
 	return (s1);
 }
 
-char	*ft_mirt(char *s1, char *set)
+char	*ft_mirt(char *s1, char *end, char *set)
 {
 	int	i;
 	int	j;
 
 	i = -1;
 	j = 0;
+	if (s1 == end)
+		return (s1);
 	while (set[++i])
 		if (*s1 == set[i])
 			j++;

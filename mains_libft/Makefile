@@ -8,7 +8,7 @@ else
 	cd ../libft; make
 endif
 
-	gcc -g -static ${SRC} -L../libft -I/libft -lft
+	gcc -g ${SRC} -L../libft -I/libft -lft -fsanitize=address
 
 clean:
 
