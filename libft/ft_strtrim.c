@@ -52,6 +52,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim_pointer = ft_trim((char *)s1, (char *)set);
 	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set);
 	trim_strlen = mirt_pointer - trim_pointer + 1;
+	if (trim_srlen < 0)
+	{
+		pointer = ft_calloc(sizeof(char));
+		pointer[0] = '\0';
+		return (pointer);
+	}
 	pointer = ft_calloc((trim_strlen + 1), sizeof(char));
 	ft_memccpy(pointer, trim_pointer, 1, trim_strlen);
 	return (pointer);
