@@ -30,6 +30,7 @@ int	main(void)
 	strtrim_tester("zXzXzXXXXbbbbbbbbtestezXbzbXzXbz", "zXb");
 	strtrim_tester("lorem \n ipsum \t dolor \n sit \t amet", " ");
 	strtrim_tester("AteAsteA", "A");
-	strtrim_tester("AtesteA", " ");
+	strtrim_tester("AteAsteA", "A");
 	strtrim_tester("AtesteA", "");
+	strtrim_tester("      ", " ");
 }
