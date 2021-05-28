@@ -6,7 +6,7 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:19:54 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/27 21:39:56 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/05/28 13:00:46 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ char	*ft_mirt(char *s1, char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	trim_strlen;
-	void	*pointer;
+	int		trim_strlen;
+	char	*pointer;
 	void	*trim_pointer;
 	void	*mirt_pointer;
 
 	trim_pointer = ft_trim((char *)s1, (char *)set);
 	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set);
 	trim_strlen = mirt_pointer - trim_pointer + 1;
-	if (trim_srlen < 0)
+	if (trim_strlen < 0)
 	{
-		pointer = ft_calloc(sizeof(char));
+		pointer = ft_calloc(sizeof(char), 1);
 		pointer[0] = '\0';
 		return (pointer);
 	}
