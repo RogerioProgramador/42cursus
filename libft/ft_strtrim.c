@@ -27,7 +27,7 @@ char	*ft_trim(char *s1, char *set)
 	return (s1);
 }
 
-char	*ft_mirt(char *s1, char *end, char *set)
+char	*ft_mirt(char *s1, char *set, char const *end)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ char	*ft_mirt(char *s1, char *end, char *set)
 		if (*s1 == set[i])
 			j++;
 	if (j != 0)
-		return (ft_mirt(--s1, set));
+		return (ft_mirt(--s1, set, end));
 	return (s1);
 }
 
@@ -52,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	void	*mirt_pointer;
 
 	trim_pointer = ft_trim((char *)s1, (char *)set);
-	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set);
+	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set, s1);
 	trim_strlen = mirt_pointer - trim_pointer + 1;
 	if (trim_strlen < 0)
 	{
