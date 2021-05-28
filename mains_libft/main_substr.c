@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:16:09 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 15:09:14 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/28 11:13:38 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ int main(void)
 	substr_tester("teste de substr", 9, 6);
 	substr_tester("teste de substr", 0, 12);
 	substr_tester("teste de substr", 4, 3);
-	substr_tester("teste de substr", 10, 3);
+	substr_tester("lorem ipsum dolor sit amet", 400, 20);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 13:12:56 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/20 15:19:16 by rsiqueir         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:16:16 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*pointer;
 
 	count = 0;
+	if (start > ft_strlen(s))
+	{
+		pointer = ft_calloc(sizeof(char), 1);
+		return (pointer);
+	}
 	pointer = malloc(len + 1);
-	if (pointer == NULL)
+	if (!pointer)
 		return (NULL);
 	while (count < len)
 	{
