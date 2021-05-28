@@ -41,8 +41,6 @@ void	free_all(char **s)
 
 void	fill_array(char **splitted, char *s, char c, size_t i[2])
 {
-	i[0] = 0;
-	i[1] = 0;
 	while (*s)
 	{
 		if (*s != c)
@@ -73,6 +71,8 @@ char	**ft_split(const char *s, char c)
 	char	*pointer;
 	size_t	i[2];
 
+	i[0] = 0;
+	i[1] = 0;
 	pointer = (char *)s;
 	splitted = alloc(pointer, c);
 	fill_array(splitted, pointer, c, i);
