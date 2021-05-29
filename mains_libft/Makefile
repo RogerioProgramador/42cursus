@@ -1,4 +1,4 @@
-SRC = main_substr.c
+SRC = main_strnstr.c
 
 all:
 
