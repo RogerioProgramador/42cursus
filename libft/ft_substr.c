@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			return (NULL);
 		return (pointer);
 	}
-	pointer = malloc(len + 1);
+	pointer = (char *)malloc((sizeof(*s) * len + 1));
 	if (!pointer)
 		return (NULL);
 	while (count < len)
