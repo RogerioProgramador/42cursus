@@ -39,7 +39,7 @@ void	free_all(char **s)
 	free(s);
 }
 
-void	fill_array(char **splitted, char *s, char c, size_t i[2])
+char	**fill_array(char **splitted, char *s, char c, size_t i[2])
 {
 	while (*s)
 	{
@@ -55,7 +55,7 @@ void	fill_array(char **splitted, char *s, char c, size_t i[2])
 			{
 				free_all(splitted);
 				splitted = NULL;
-				return ;
+				return (splitted);
 			}
 			ft_nstrcpy(splitted[i[1]++], (s - i[0]), c);
 			i[0] = 0;
@@ -63,6 +63,7 @@ void	fill_array(char **splitted, char *s, char c, size_t i[2])
 		if (*s)
 			s++;
 	}
+	return (splitted);
 }
 
 char	**ft_split(const char *s, char c)
@@ -75,6 +76,16 @@ char	**ft_split(const char *s, char c)
 	i[1] = 0;
 	pointer = (char *)s;
 	splitted = alloc(pointer, c);
-	fill_array(splitted, pointer, c, i);
+	if (splitted == NULL)
+	{	
+		free(splitted);
+		return (NULL);
+	}
+	splitted = fill_array(splitted, pointer, c, i);
+	if (splitted == NULL)
+	{	
+		free(splitted);
+		return (NULL);
+	}
 	return (splitted);
 }
