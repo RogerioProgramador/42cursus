@@ -23,6 +23,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > ft_strlen(s))
 	{
 		pointer = ft_calloc(sizeof(char), 1);
+		if (!pointer)
+			return (NULL);
 		return (pointer);
 	}
 	pointer = malloc(len + 1);
