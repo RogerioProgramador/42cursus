@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	count;
 	char			*pointer;
 
-	count = 0;
+	count = -1;
 	if (s == NULL)
 		return (NULL);
 	if (start > ft_strlen(s))
@@ -27,14 +27,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			return (NULL);
 		return (pointer);
 	}
-	pointer = (char *)malloc((sizeof(char) * (len + 1)));
+	if (len > ft_strlen(s + start))
+		pointer = (char *)ft_calloc(sizeof(char), (ft_strlen(s + start)) + 1);
+	else
+		pointer = (char *)ft_calloc(sizeof(char), (len + 1));
 	if (!pointer)
 		return (NULL);
-	while (count < len)
-	{
+	while (++count < len)
 		pointer[count] = s[count + start];
-		count++;
-	}
-	pointer[len] = '\0';
 	return (pointer);
 }

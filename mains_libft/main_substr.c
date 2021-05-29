@@ -47,6 +47,10 @@ int main(void)
 {
 	substr_tester("teste de substr", 9, 6);
 	substr_tester("teste de substr", 0, 12);
-	substr_tester("teste de substr", 4, 3);
-	substr_tester("lorem ipsum dolor sit amet", 400, 20);
+	substr_tester("teste de substr", 4, 3);	
+	char *teste = ft_substr("tripouille", 1, 1);
+	printf("________________OLHA AQUI____________________\n");
+	printf("|%s|\n", teste);
+	printf("%i\n", ft_strncmp(teste, "r", ft_strlen(teste)));
+	printf("____________________________________________\n");
 }
