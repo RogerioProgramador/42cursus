@@ -74,6 +74,8 @@ char	**ft_split(const char *s, char c)
 
 	i[0] = 0;
 	i[1] = 0;
+	if (s == NULL)
+		return (NULL);
 	pointer = (char *)s;
 	splitted = alloc(pointer, c);
 	if (splitted == NULL)
