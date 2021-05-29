@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*pointer;
 
 	count = 0;
+	if (s == NULL)
+		return (NULL);
 	if (start > ft_strlen(s))
 	{
 		pointer = ft_calloc(sizeof(char), 1);

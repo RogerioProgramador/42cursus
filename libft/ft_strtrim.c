@@ -51,6 +51,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	void	*trim_pointer;
 	void	*mirt_pointer;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	trim_pointer = ft_trim((char *)s1, (char *)set);
 	mirt_pointer = ft_mirt(((char *)s1 + ft_strlen(s1) - 1), (char *)set, s1);
 	trim_strlen = mirt_pointer - trim_pointer + 1;
