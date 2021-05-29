@@ -57,10 +57,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (trim_strlen < 0)
 	{
 		pointer = ft_calloc(sizeof(char), 1);
+		if (!pointer)
+			return (NULL);
 		pointer[0] = '\0';
 		return (pointer);
 	}
 	pointer = ft_calloc((trim_strlen + 1), sizeof(char));
+	if (!pointer)
+		return (NULL);
 	ft_memccpy(pointer, trim_pointer, 1, trim_strlen);
 	return (pointer);
 }

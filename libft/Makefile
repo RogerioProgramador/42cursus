@@ -12,7 +12,7 @@
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -c -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -c -Wall -Werror -Wextra
 AR = ar rcs
 LIB = ranlib
 RM = rm -f
@@ -45,6 +45,7 @@ SRCS =	ft_memset.c		\
 		ft_substr.c		\
 		ft_strtrim.c	\
 		ft_strjoin.c	\
+		ft_strmapi.c	\
 		ft_split.c		\
 		ft_itoa.c		\
 		ft_putchar_fd.c	\
