@@ -49,7 +49,11 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		if (n == -2147483648)
-			return ("-2147483648");
+		{
+			stringnb = ft_calloc(sizeof(char), 12);
+			ft_strlcpy(stringnb, "-2147483648", 12);
+			return (stringnb);
+		}
 		n *= -1;
 		stringnb = ft_calloc(cases + 2, sizeof(char));
 		stringnb = nb_to_string(stringnb, n, cases, '-');
