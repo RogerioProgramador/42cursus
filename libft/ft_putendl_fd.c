@@ -15,7 +15,7 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL)
-		return (NULL);
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);
