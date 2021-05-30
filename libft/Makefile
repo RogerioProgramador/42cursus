@@ -6,7 +6,7 @@
 #    By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/30 14:43:14 by rogeriorslf      ###   ########.fr        #
+#    Updated: 2021/05/30 15:07:47 by rogeriorslf      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ BONUS = ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstadd_back.c	\
 		ft_lstiter.c		\
-		ft_lstdelone.c
+		ft_lstdelone.c		\
+		ft_lstmap.c
 
 #.c to .o
 OBJ =		${SRCS:%.c=%.o}
