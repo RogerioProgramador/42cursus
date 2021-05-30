@@ -6,7 +6,7 @@
 #    By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/30 14:31:26 by rogeriorslf      ###   ########.fr        #
+#    Updated: 2021/05/30 14:43:14 by rogeriorslf      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,18 @@ SRCS =	ft_memset.c		\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c
 
+BONUS = ft_lstnew.c			\
+		ft_lstlast.c		\
+		ft_lstsize.c		\
+		ft_lstclear.c		\
+		ft_lstadd_front.c	\
+		ft_lstadd_back.c	\
+		ft_lstiter.c		\
+		ft_lstdelone.c
+
 #.c to .o
 OBJ =		${SRCS:%.c=%.o}
+BONUS_OBJ =	${BONUS:%.c=%.o}
 
 all:		${NAME}
 
@@ -65,11 +75,14 @@ ${NAME}:	${OBJ}
 			${CC}	${CFLAGS}	$< -o $@
 
 clean:
-			${RM}	${OBJ}
-			
+			${RM}	${OBJ}		${BONUS_OBJ}
+
 fclean:		clean
 			${RM}	${NAME}
 
 re: fclean all
+
+bonus:		${NAME}	${BONUS_OBJ}
+			${AR}	${NAME}		${BONUS_OBJ}
 
 .PHONY: all clean fclean re
