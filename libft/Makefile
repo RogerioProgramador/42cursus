@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rsiqueir <rsiqueir@student.42sp.org.br     +#+  +:+       +#+         #
+#    By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 16:21:52 by rsiqueir          #+#    #+#              #
-#    Updated: 2021/05/25 11:53:49 by rsiqueir         ###   ########.fr        #
+#    Updated: 2021/05/30 14:31:26 by rogeriorslf      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,32 +54,19 @@ SRCS =	ft_memset.c		\
 		ft_putnbr_fd.c
 
 #.c to .o
-ifeq (${BUILD},1)
-OBJ =		${SRCS:%.c=build/%.o}
-else
 OBJ =		${SRCS:%.c=%.o}
-endif
 
 all:		${NAME}
 
 ${NAME}:	${OBJ}
 			${AR}	${NAME}		${OBJ}
 
-ifeq (${BUILD},1)
-build/%.o:		%.c
-			@mkdir -p build
-			${CC}	-g ${CFLAGS}	$< -o $@
-else
 %.o:		%.c
 			${CC}	${CFLAGS}	$< -o $@
-endif
 
 clean:
 			${RM}	${OBJ}
-ifeq (${BUILD},1)
-			${RMDIR} build
-endif
-
+			
 fclean:		clean
 			${RM}	${NAME}
 
