@@ -6,12 +6,14 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/26 20:13:49 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/01 00:36:49 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 
 void	atoi_tester(char *s)
 {
@@ -287,6 +289,20 @@ void	isprint_tester(int a)
 		printf("        KO\n");
 }
 
+void	itoa_tester(int n)
+{
+	char	*b;
+
+	b = ft_itoa(n);
+	printf("-------------------------------------------\n");
+	printf("Original: %i\n", n);
+	printf("ft_itoa:  %s", b);
+	if (atoi((const char *)b) == n)
+		printf("            OK\n");
+	else
+		printf("            KO\n");
+}
+
 int	main(void)
 {
 	printf("----------------------------------------------------------\n");
@@ -361,6 +377,17 @@ int	main(void)
 	isprint_tester(32);
 	isprint_tester(65);
 	isprint_tester(127);
+
+	printf("\n////////////////////// ITOA ///////////////////\n");
+	itoa_tester(0);
+	itoa_tester(1);
+	itoa_tester(9);
+	itoa_tester(10);
+	itoa_tester(2147483647);
+	itoa_tester(-1);
+	itoa_tester(-9);
+	itoa_tester(-42567);
+	itoa_tester(-2147483648);
 
 	printf ("\n\n\n");
 	printf("----------------------------------------------------------\n");

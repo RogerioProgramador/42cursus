@@ -1,4 +1,4 @@
-SRC = main_strnstr.c
+SRC = allmains.c
 
 all:
 
@@ -8,7 +8,7 @@ else
 	cd ../libft; make
 endif
 
-	gcc -g ${SRC} -L../libft -I/libft -lft -fsanitize=address
+	gcc -g ${SRC} -L../libft -I/libft -lft
 
 clean:
 
