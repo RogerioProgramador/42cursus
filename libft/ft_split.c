@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/09 02:27:17 by rogeriorslf       #+#    #+#             */
+/*   Updated: 2021/06/09 02:27:18 by rogeriorslf      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	**alloc(char *s, char c)
@@ -79,13 +91,10 @@ char	**ft_split(const char *s, char c)
 	pointer = (char *)s;
 	splitted = alloc(pointer, c);
 	if (splitted == NULL)
-	{	
-		free(splitted);
 		return (NULL);
-	}
 	splitted = fill_array(splitted, pointer, c, i);
 	if (splitted == NULL)
-	{	
+	{
 		free(splitted);
 		return (NULL);
 	}

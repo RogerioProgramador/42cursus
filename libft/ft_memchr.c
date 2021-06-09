@@ -6,7 +6,7 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 13:13:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/05/31 16:49:41 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/09 02:27:00 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			a++;
 	}
 	return (0);
-	
 }
