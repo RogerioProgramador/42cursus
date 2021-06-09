@@ -6,7 +6,7 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 02:50:41 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/06/01 00:36:49 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/09 03:10:16 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,28 +249,6 @@ void	substr_tester(char const *s, unsigned int start, size_t len)
 		printf("          KO\n");
 }
 
-void strtrim_tester(char *a, char *b)
-{
-	char	*pointer;
-
-	pointer = ft_strtrim(a, b);
-	printf("-------------------------------------------------------\n");
-	printf("string: %s\n", a);
-	printf("set: %s\n", b);
-	printf("%s\n", pointer);
-}
-
-void	strjoin_tester(char const *s1, char const *s2)
-{
-	char *pointer;
-
-	pointer = ft_strjoin(s1, s2);
-	printf("-------------------------------------------------------\n");
-	printf("first word: %s\n", s1);
-	printf("second word: %s\n", s2);
-	printf("result: %s\n", pointer);
-}
-
 void	isprint_tester(int a)
 {
 	int b;
@@ -303,8 +281,102 @@ void	itoa_tester(int n)
 		printf("            KO\n");
 }
 
+void	memccpy_tester(char *dst, char *src, int c, size_t n)
+{
+	char *dup1;
+	char *dup2;
+	int a;
+
+	dup1 = ft_strdup(dst);
+	dup2 = ft_strdup(src);
+
+	memccpy(dup1, dup2, 'z', n);
+	printf("%s\n", dup1);
+	ft_memccpy(dst, src, 'z', n);
+	printf("%s", dst);
+
+	a = ft_strncmp(dup1, dst, n);
+	if (a != 0)
+		printf("        KO\n");
+	else
+		printf("        OK\n");
+}
+
+void memchr_tester(char *a, int c, int len)
+{
+	char	*pointer1;
+	char	*pointer2;
+
+	pointer1 = ft_memchr(a, c, len);
+	pointer2 = memchr(a, c, len);
+	printf("-----------------------------------------------------------\n");
+	printf("string: %s | char: %c | len: %i\n", a, c, len);
+	if (pointer1 != NULL && pointer2 != NULL)
+	{
+		printf("ft_memchr: %s\n", pointer1);
+		printf("memchr: %s           ", pointer2);
+	}
+	else if (pointer1 == NULL && pointer2 == NULL)
+	{
+		printf("ft_memchr: (null)\n");
+		printf("memchr: (null)                   OK!\n");
+		return ;
+	}
+	else
+		printf("Cenário string = %s\n       KO", a);
+	if (ft_strncmp(pointer1, pointer2, ft_strlen(pointer2)) == 0)
+		printf("OK!\n");
+	else
+		printf("KO!\n");
+}
+
+void	strjoin_tester(char const *s1, char const *s2)
+{
+	char *pointer;
+
+	pointer = ft_strjoin(s1, s2);
+	printf("-------------------------------------------------------\n");
+	printf("first word: %s\n", s1);
+	printf("second word: %s\n", s2);
+	printf("result: %s\n", pointer);
+}
+
+void	strtrim_tester(char *a, char *b)
+{
+	char	*pointer;
+
+	pointer = ft_strtrim(a, b);
+	printf("-------------------------------------------------------\n");
+	printf("string: %s\n", a);
+	printf("set: %s\n", b);
+	printf("%s\n", pointer);
+}
+
+void split_tester(char *b, char c)
+{
+	int i;
+	char **teste;
+	i = 0;
+	teste = ft_split(b, c);
+	printf("-----------------\n");
+	printf("Frase teste: %s\n", b);
+	while (teste[i])
+	{
+		printf("palavra %i: %s\n",i + 1, teste[i]);
+		i++;
+	}
+	free(teste);
+}
+
+
 int	main(void)
 {
+	char t1[100];
+	char t2[] = "testea";
+	char t3[3];
+	char t4[] = "carro";
+	char t5[100];
+	char t6[] = "teaste";
 	printf("----------------------------------------------------------\n");
 	printf("|              Part 1 - Libc Functions                   |\n");
 	printf("----------------------------------------------------------\n");
@@ -336,10 +408,17 @@ int	main(void)
 	strlen_tester("");
 	strlen_tester("teste com espaços");
 
-	printf("\n////////////////////// CALLOC ///////////////////\n");
-	calloc_tester(1, sizeof(char));
-	calloc_tester(2, sizeof(char));
-	calloc_tester(1, sizeof(int));
+	printf("\n////////////////////// MEMCCPY ///////////////////\n");
+	memccpy_tester(t1, t2, 'a', 3);
+	memccpy_tester(t3, t4, 'a', 5);
+	memccpy_tester(t5, t6, 't', 7);
+
+	printf("\n////////////////////// MEMCHR ///////////////////\n");
+	memchr_tester("fazendo testes variados", 'v', 20);
+	memchr_tester("a", 'a', 1);
+	memchr_tester("teste", 'v', 20);
+	memchr_tester("fazendo testes variados", 'v', 20);
+	memchr_tester("teste", 'v', 7);
 
 	printf("\n////////////////////// ISALNUM ///////////////////\n");
 	isalnum_tester(-1);
@@ -389,6 +468,11 @@ int	main(void)
 	itoa_tester(-42567);
 	itoa_tester(-2147483648);
 
+	printf("\n////////////////////// CALLOC ///////////////////\n");
+	calloc_tester(1, sizeof(char));
+	calloc_tester(2, sizeof(char));
+	calloc_tester(1, sizeof(int));
+
 	printf ("\n\n\n");
 	printf("----------------------------------------------------------\n");
 	printf("|              Part 2 - Additional Functions             |\n");
@@ -411,4 +495,9 @@ int	main(void)
 	strtrim_tester("AteAsteA", "A");
 	strtrim_tester("AtesteA", " ");
 	strtrim_tester("AtesteA", "");
+
+	printf("\n////////////////////// SPLIT ///////////////////\n");
+	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	split_tester("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	split_tester("      split       this for   me  !       ", ' ');
 }

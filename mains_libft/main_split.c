@@ -6,11 +6,12 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:12:22 by rsiqueir          #+#    #+#             */
-/*   Updated: 2021/06/01 00:34:36 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/09 03:09:43 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include <stdio.h>
 
 void split_tester(char *b, char c)
 {
@@ -19,23 +20,19 @@ void split_tester(char *b, char c)
 	i = 0;
 	teste = ft_split(b, c);
 	printf("-----------------\n");
+	printf("Frase teste: %s\n", b);
 	while (teste[i])
 	{
-		printf("%s\n", teste[i]);
+		printf("palavra %i: %s\n",i + 1, teste[i]);
 		i++;
 	}
 	free(teste);
 }
 
-
 int		main(void)
 {
-
-	split_tester("          ", ' ');
 	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
 	split_tester("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-	split_tester("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z');
 	split_tester("      split       this for   me  !       ", ' ');
 }
 
