@@ -6,7 +6,7 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 00:21:59 by rogeriorslf       #+#    #+#             */
-/*   Updated: 2021/06/07 21:19:19 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/11 02:54:47 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,3 @@ int	get_next_line(int fd, char **line)
 		return (0);
 	return (1);
 }
-
