@@ -6,38 +6,40 @@
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 01:53:50 by rogeriorslf       #+#    #+#             */
-/*   Updated: 2021/06/11 10:02:09 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/06/12 16:32:48 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_lib.h"
 #include <stdio.h>
 
+int free_and_return(char *s, int i)
+{
+	free(s);
+	return (i);
+}
+
 int	ft_printf(char *s, ...)
 {
 	va_list	vl;
-	int		i;
+	int		position;
 	char	*buffer;
 
-	i = -1;
+	position = -1;
 	buffer = ft_strdup(s);
 	va_start(vl, s);
-	while (s[++i])
+	while (s[++position])
 	{
-		if (s[i] == '%')
+		if (s[position] == '%')
 		{
-			buffer = conversion(++i, buffer, s, va_arg(vl, char *));
+			buffer = ft_convert(s, ++position, buffer, va_arg(vl, char *));
 			if (!buffer)
-			{
-				free(buffer);
-				return (0);
-			}
+				return(free_and_return(buffer, 0));
 		}
 	}
-	write(1, buffer, ft_strlen(buffer));
-	free(buffer);
 	va_end(vl);
-	return (1);
+	ft_putstr_fd(buffer, 1);
+	return (free_and_return(buffer, 1));
 }
 
 int	main(void)
@@ -47,5 +49,5 @@ int	main(void)
 
 	i = 43;
 	s = "mafagafos";
-	printf("%s teste |%-6.*i|", s, 3, i);
+	printf("%s teste |%-5i|", s, i);
 }

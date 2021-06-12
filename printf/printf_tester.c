@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion_mode.h                                  :+:      :+:    :+:   */
+/*   printf_tester.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 04:29:33 by rogeriorslf       #+#    #+#             */
-/*   Updated: 2021/06/11 07:34:23 by rogeriorslf      ###   ########.fr       */
+/*   Created: 2021/06/12 12:21:38 by rogeriorslf       #+#    #+#             */
+/*   Updated: 2021/06/12 16:12:59 by rogeriorslf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERSION_H
-# define CONVERSION_H
+#include "ft_printf_lib.h"
+#include <stdio.h>
 
-char	*conversion(int i, char *buffer, char *s, void *convert);
+int main(void)
+{
+	char *teste;
 
-char	*case_s(char *s, char *convert);
-#endif
+	teste = "435---sadavzxcvz";
+	printf("teste %i", ft_atoi(teste));
+}
