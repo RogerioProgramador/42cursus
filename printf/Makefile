@@ -14,9 +14,8 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra -g
 OBJ = ft_printf.c
 LIBFT = libft/libft.a
-FUNCTIONS_OBJS = my_functions/ft_occurrence.c
-CONVERSION_OBJS =	conversion/conversion.c \
-					conversion/case_s.c
+FUNCTIONS_OBJS =
+CONVERSION_OBJS =
 
 all: make
 	${CC} ${FLAGS} ${FUNCTIONS_OBJS} ${CONVERSION_OBJS} ${OBJ} ${LIBFT}

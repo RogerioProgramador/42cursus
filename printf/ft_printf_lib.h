@@ -22,16 +22,11 @@ typedef struct	print_params
 	int	specifier;
 }				printparams;
 
-/*Homemade*/
-# include "libft/libft.h"
-# include "my_functions/my_functions.h"
 /*Libraries*/
 # include <stdarg.h>
 # include <unistd.h>
 
 /*Functions*/
 int			ft_printf(char *s, ...);
-char		*ft_convert(char *s, int position, char *buffer, void *new_value);
-printparams	set_params(char *s, int i);
 
 #endif
