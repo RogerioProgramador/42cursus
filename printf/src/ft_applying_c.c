@@ -8,6 +8,6 @@ char    *ft_applying_c(va_list args)
     if (!pointer)
         return (NULL);
     pointer[1] = 0;
-    pointer[0] = va_list(args, char);
-    return (pointer);
+    pointer[0] = va_arg(args, int);
+        return (pointer);
 }

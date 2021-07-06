@@ -26,13 +26,15 @@ typedef struct	print_params
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
 /*Functions*/
 int     ft_printf(char *s, ...);
 int     ft_occurrence(char c, char *s);
 int     ft_set_number(va_list args, char *s);
-char    *ft_applying_specifiers(printparameters parameters, va_list args);
+int     ft_move_forward(char *s);
+char    *ft_applying_specifiers(char specifier, va_list args);
 char    *ft_applying_c(va_list args);
 char    *ft_applying_s(va_list args);
 char    *ft_applying_d(va_list args);

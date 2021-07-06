@@ -1,5 +1,7 @@
 #include "../ft_printf_lib.h"
 
+
+
 char    *ft_applying_u(va_list args)
 {
     unsigned int n;
