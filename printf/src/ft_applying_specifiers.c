@@ -15,11 +15,12 @@ char    *ft_applying_specifiers(char specifier, va_list args)
         pointer = ft_applying_d(args);
     else if (specifier == 'u')
         pointer = ft_applying_u(args);
-     /*else if (specifier == 'x')
+    else if (specifier == 'x')
         pointer = ft_applying_x(args);
     else if (specifier == 'X')
-        pointer = applying_X(args);
-     else if (specifier == '%')
+        pointer = ft_applying_X(args);
+    /*
+    else if (specifier == '%')
         pointer = ft_applying_%(args);*/
     return (pointer);
 }

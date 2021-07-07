@@ -4,15 +4,13 @@ static size_t hex_cases(size_t n)
 {
     size_t i;
 
-    i = 0;
-    if (n == 1)
-        return (1);
-    if (n / 16 == 1)
-        return (2);
-    while (n > 1)
+    i = 1;
+    if (n <= 16)
+        return (i);
+    while (((double)n / 16) > 1)
     {
-        n /= 16;
         i++;
+        n = n / 16;
     }
     return (i);
 }
@@ -50,15 +48,14 @@ char    *ft_hextoa(size_t nb)
     pointer = (char *)malloc(sizeof(char) * (cases + 1));
     pointer[cases] = 0;
     hex(pointer, --cases, nb);
-
     return (pointer);
 }
 
 //int main(void)
 //{
-//    char *pointer;
+//   char *pointer;
 //
-//    size_t n = 17;
+//    size_t n = 300;
 //    printf("%li\n", hex_cases(n));
 //    pointer = ft_hextoa(n);
 //    printf("%s", pointer);

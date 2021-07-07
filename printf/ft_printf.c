@@ -65,18 +65,11 @@ int ft_printf(char *s, ...)
     char    *buffer;
     int i;
 
-    //buffer que sera base para nossos prints;
     buffer = ft_strdup(s);
-    //contador
     i = 0;
-    //iniciando os argumentos variáveis
     va_start(args, s);
-    //responsável pelos prints
     i = ft_print_out(buffer, args, i);
-    //encerrando os argumentos variáveis
     va_end(args);
-    //limpando o buffer base
     free(buffer);
-    //retorna o int
     return (i);
 }

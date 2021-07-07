@@ -8,5 +8,5 @@ char    *ft_applying_p(va_list arg)
     n = va_arg(arg, size_t);
     pointer = ft_hextoa(n);
     pointer = ft_ptr_prefix(pointer);
-    return(pointer);
+    return (pointer);
 }

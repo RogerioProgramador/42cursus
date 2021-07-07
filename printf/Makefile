@@ -16,5 +16,8 @@ all: make
 b: make
 	gcc -g libft/*.c src/*.c ft_printf.c teste.c
 
+tester: make
+	gcc -g libft/*.c src/*.c ft_printf.c printf_tester.c
+
 make:
 	cd libft; make; make clean

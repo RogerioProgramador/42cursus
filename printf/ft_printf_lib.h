@@ -41,6 +41,8 @@ char    *ft_applying_s(va_list args);
 char    *ft_applying_p(va_list args);
 char    *ft_applying_d(va_list args);
 char    *ft_applying_u(va_list args);
+char    *ft_applying_x(va_list args);
+char    *ft_applying_X(va_list args);
 char    *ft_applying_flag(char *pointer, printparameters *parameters);
 char    *ft_putting_in_place(char *pointer,char *buffer);
 char    *ft_strndup(char *s, int c);
