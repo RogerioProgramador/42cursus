@@ -34,15 +34,19 @@ int     ft_printf(char *s, ...);
 int     ft_occurrence(char c, char *s);
 int     ft_set_number(va_list args, char *s);
 int     ft_move_forward(char *s);
+char	*ft_utoa(unsigned int n);
 char    *ft_applying_specifiers(char specifier, va_list args);
 char    *ft_applying_c(va_list args);
 char    *ft_applying_s(va_list args);
+char    *ft_applying_p(va_list args);
 char    *ft_applying_d(va_list args);
 char    *ft_applying_u(va_list args);
-void    ft_applying_flag(char *pointer, printparameters parameters);
-void    ft_applying_precision(char *pointer, int precision);
+char    *ft_applying_flag(char *pointer, printparameters *parameters);
 char    *ft_putting_in_place(char *pointer,char *buffer);
 char    *ft_strndup(char *s, int c);
-
+char    *ft_hextoa(size_t n);
+char    *ft_ptr_prefix(char *pointer);
+void    ft_applying_precision(char *pointer, int precision);
+void    ft_structstart(printparameters *x);
 
 #endif

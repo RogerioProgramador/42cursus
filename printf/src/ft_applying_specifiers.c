@@ -9,20 +9,17 @@ char    *ft_applying_specifiers(char specifier, va_list args)
         pointer = ft_applying_c(args);
     else if (specifier == 's')
         pointer = ft_applying_s(args);
-    /*
     else if (specifier == 'p')
         pointer = ft_applying_p(args);
-    */
     else if (specifier == 'd' || specifier == 'i')
         pointer = ft_applying_d(args);
-    /*
     else if (specifier == 'u')
         pointer = ft_applying_u(args);
-        */
-
      /*else if (specifier == 'x')
         pointer = ft_applying_x(args);
     else if (specifier == 'X')
-        pointer = applying_X(args);*/
+        pointer = applying_X(args);
+     else if (specifier == '%')
+        pointer = ft_applying_%(args);*/
     return (pointer);
 }

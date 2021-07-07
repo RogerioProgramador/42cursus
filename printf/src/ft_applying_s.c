@@ -5,7 +5,7 @@ char    *ft_applying_s(va_list args)
     char    *s_string;
     char    *pointer;
     int     i;
-    
+
     s_string = va_arg(args, char *);
     i = ft_strlen(s_string);
     pointer = (char *)malloc(sizeof(char) * (i + 1));

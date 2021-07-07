@@ -2,14 +2,11 @@
 
 int ft_occurrence(char c, char *s)
 {
-    if (s)
+    while (*s)
     {
-        while (*s)
-        {
-            if (*s == (char) c)
-                return (1);
-            s++;
-        }
+        if (*s == (char) c)
+            return (1);
+        s++;
     }
     return (0);
 }
