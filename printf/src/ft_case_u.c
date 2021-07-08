@@ -1,6 +1,6 @@
 #include "../ft_printf_lib.h"
 
-char    *ft_applying_u(va_list args)
+char    *ft_case_u(va_list args)
 {
     unsigned int n;
 

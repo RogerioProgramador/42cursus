@@ -1,6 +1,6 @@
 #include "../ft_printf_lib.h"
 
-char    *ft_applying_s(va_list args)
+char    *ft_case_s(va_list args)
 {
     char    *s_string;
     char    *pointer;

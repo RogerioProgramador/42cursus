@@ -21,3 +21,6 @@ tester: make
 
 make:
 	cd libft; make; make clean
+
+clean:
+	@rm a.out;

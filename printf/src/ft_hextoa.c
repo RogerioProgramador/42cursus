@@ -1,39 +1,32 @@
 #include "../ft_printf_lib.h"
 
-static size_t hex_cases(size_t n)
+static size_t   hex_cases(size_t n)
 {
-    size_t i;
+    size_t  cases;
 
-    i = 1;
-    if (n <= 16)
-        return (i);
-    while (((double)n / 16) > 1)
+    cases = 0;
+    while (n != 0)
     {
-        i++;
-        n = n / 16;
+        n /= 16;
+        cases++;
     }
-    return (i);
+    return (cases);
 }
 
-static char    dectohex(size_t nb)
+static char dec_to_hex(size_t nb)
 {
     char    *hex_base;
-    char    result;
 
-    hex_base = ft_strdup("0123456789abcdef");
-    result = hex_base[nb];
-    free(hex_base);
-    return (result);
+    hex_base = "0123456789abcdef";
+    return (hex_base[nb]);
 }
+
 static void hex(char *pointer, size_t cases, size_t nb)
 {
-    size_t  remnant;
-
     while (nb >= 1)
     {
-        remnant = nb % 16;
+        pointer[cases] = dec_to_hex(nb % 16);
         nb /= 16;
-        pointer[cases] = dectohex(remnant);
         cases--;
     }
 }
@@ -43,22 +36,10 @@ char    *ft_hextoa(size_t nb)
     char    *pointer;
     size_t  cases;
 
-    //0x5627fee9e04c
     cases = hex_cases(nb);
-    pointer = (char *)malloc(sizeof(char) * (cases + 1));
-    pointer[cases] = 0;
+    if (cases == 0)
+        return (ft_strdup("0"));
+    pointer = (char *)ft_calloc((cases + 1), sizeof(char));
     hex(pointer, --cases, nb);
     return (pointer);
 }
-
-//int main(void)
-//{
-//   char *pointer;
-//
-//    size_t n = 300;
-//    printf("%li\n", hex_cases(n));
-//    pointer = ft_hextoa(n);
-//    printf("%s", pointer);
-//}
-
-

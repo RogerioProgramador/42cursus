@@ -1,6 +1,6 @@
 #include "../ft_printf_lib.h"
 
-char    *ft_applying_x(va_list args)
+char    *ft_case_x(va_list args)
 {
     size_t  nb;
 

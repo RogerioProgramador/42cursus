@@ -58,7 +58,7 @@ static char    *ft_flagminus(char *pointer, printparameters *parameters)
     return (result);
 }
 
-char   *ft_applying_flag(char *pointer, printparameters *parameters)
+char   *ft_apply_flag(char *pointer, printparameters *parameters)
 {
     char *result;
     if (parameters->flags == '0')

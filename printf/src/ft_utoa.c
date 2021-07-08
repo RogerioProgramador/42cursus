@@ -12,14 +12,14 @@
 
 #include "../ft_printf_lib.h"
 
-static unsigned int	sizet_length(unsigned int nb)
+static unsigned int	usize_length(unsigned int nb)
 {
 	if (nb < 0)
 		nb = nb * -1;
 	if (nb <= 9)
 		return (1);
 	else
-		return (sizet_length(nb / 10) + 1);
+		return (usize_length(nb / 10) + 1);
 }
 
 static char	*nbr_to_string(char *stringnb, unsigned int n, unsigned int cases)
@@ -38,7 +38,7 @@ char	*ft_utoa(unsigned int n)
     unsigned int		cases;
 	char	            *stringnb;
 
-	cases = sizet_length(n);
+	cases = usize_length(n);
 	stringnb = ft_calloc(cases + 1, sizeof(char));
 	if (!stringnb)
 	    return (NULL);

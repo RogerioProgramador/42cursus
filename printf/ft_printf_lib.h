@@ -13,7 +13,12 @@
 #ifndef FT_PRINTF_LIB_H
 # define FT_PRINTF_LIB_H
 
-/*Struct*/
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "libft/libft.h"
+
 typedef struct	print_params
 {
 	int	flags;
@@ -22,33 +27,26 @@ typedef struct	print_params
 	int	specifier;
 }				printparameters;
 
-/*Libraries*/
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft/libft.h"
-
-/*Functions*/
 int     ft_printf(char *s, ...);
-int     ft_occurrence(char c, char *s);
-int     ft_set_number(va_list args, char *s);
-int     ft_move_forward(char *s);
+int     ft_isvalid(printparameters *parameters, char *pointer, va_list args);
+int     ft_convert(printparameters *params, va_list args);
+
+char    *ft_apply_specifiers(char specifier, va_list args);
+char    *ft_apply_flag(char *pointer, printparameters *parameters);
+char    *ft_apply_precision(char *pointer, int precision);
+
+char    *ft_case_c(va_list args);
+char    *ft_case_s(va_list args);
+char    *ft_case_p(va_list args);
+char    *ft_case_d(va_list args);
+char    *ft_case_u(va_list args);
+char    *ft_case_x(va_list args);
+char    *ft_case_X(va_list args);
+
+char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
-char    *ft_applying_specifiers(char specifier, va_list args);
-char    *ft_applying_c(va_list args);
-char    *ft_applying_s(va_list args);
-char    *ft_applying_p(va_list args);
-char    *ft_applying_d(va_list args);
-char    *ft_applying_u(va_list args);
-char    *ft_applying_x(va_list args);
-char    *ft_applying_X(va_list args);
-char    *ft_applying_flag(char *pointer, printparameters *parameters);
-char    *ft_putting_in_place(char *pointer,char *buffer);
-char    *ft_strndup(char *s, int c);
-char    *ft_hextoa(size_t n);
-char    *ft_ptr_prefix(char *pointer);
-void    ft_applying_precision(char *pointer, int precision);
-void    ft_structstart(printparameters *x);
+
+int     ft_move_forward(char *s);
+void    ft_struct_start(printparameters *x);
 
 #endif
