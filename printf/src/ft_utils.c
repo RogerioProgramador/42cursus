@@ -21,4 +21,5 @@ void ft_struct_start(printparameters *x)
     x->flags = 'x';
     x->width = 0;
     x->presicion = 0;
+    x->precision_bool = 0;
 }

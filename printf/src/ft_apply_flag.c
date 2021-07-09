@@ -2,10 +2,10 @@
 
 static char    *ft_noflag(char *pointer, printparameters *parameters, char a)
 {
-    char *result;
-    int i;
-    int width;
-    int start;
+    char    *result;
+    int     i;
+    int     width;
+    int     start;
 
     i = -1;
     width = parameters->width;
@@ -38,9 +38,9 @@ static char    *ft_flagzero(char *pointer, printparameters *parameters)
 
 static char    *ft_flagminus(char *pointer, printparameters *parameters)
 {
-    char *result;
-    int i;
-    int width;
+    char    *result;
+    int     i;
+    int     width;
 
     i = -1;
     width = parameters->width;
@@ -60,7 +60,7 @@ static char    *ft_flagminus(char *pointer, printparameters *parameters)
 
 char   *ft_apply_flag(char *pointer, printparameters *parameters)
 {
-    char *result;
+    char    *result;
     if (parameters->flags == '0')
         result = ft_flagzero(pointer, parameters);
     else if (parameters->flags == '-')

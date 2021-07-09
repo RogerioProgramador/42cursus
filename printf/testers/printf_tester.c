@@ -78,6 +78,6 @@ int main(void)
     uX_tester(1000, pointer_count++);
 
     //Percent
-    printf("\n----------Percent as specifier------------\n");
+    printf("\n------------Percent as specifier----------\n");
     percent_tester(1, pointer_count++);
 }

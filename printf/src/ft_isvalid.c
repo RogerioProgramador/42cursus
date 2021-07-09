@@ -53,6 +53,7 @@ int ft_isvalid(printparameters *parameters, char *pointer, va_list args)
     }
     if (*pointer && *pointer == '.')
     {
+        parameters->precision_bool = 1;
         parameters->presicion = ft_set_precision(args, ++pointer);//começar o precision pra saber como é.
         while (ft_strchr("0123456789*", *pointer))
             pointer++;
