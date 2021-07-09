@@ -39,7 +39,8 @@ char    *ft_hextoa(size_t nb)
     cases = hex_cases(nb);
     if (cases == 0)
         return (ft_strdup("0"));
-    pointer = (char *)ft_calloc((cases + 1), sizeof(char));
+    pointer = (char *)malloc((cases + 1) * sizeof(char));
+    pointer[cases] = 0;
     hex(pointer, --cases, nb);
     return (pointer);
 }

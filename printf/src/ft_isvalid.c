@@ -1,8 +1,17 @@
 #include "../ft_printf_lib.h"
 
-int ft_set_flag(char *s)
+int ft_set_flag(char *s, printparameters *parameters)
 {
- return (1);
+    if (*s == '0' && *(s + 1) == '-')
+    {
+        parameters->flags = '-';
+        return (2);
+    }
+    else
+    {
+        parameters->flags = *s;
+        return (1);
+    }
 }
 
 int ft_set_width(va_list args, char *s, printparameters *parameters)
@@ -31,11 +40,11 @@ static int  ft_set_precision(va_list args, char *s)
         return(ft_atoi(s));
 }
 
-static int ft_isvalid(printparameters *parameters, char *pointer, va_list args)
+int ft_isvalid(printparameters *parameters, char *pointer, va_list args)
 {
     ft_struct_start(parameters);
     if (*pointer && ft_strchr("0-", *pointer))
-        parameters->flags = ft_set_flag(pointer++);//função nova para verificar caractere + 1
+        pointer += ft_set_flag(&(*pointer), parameters);//função nova para verificar caractere + 1
     if (*pointer && ft_strchr("0123456789*", *pointer))
     {
         parameters->width = ft_set_width(args, pointer++, parameters);//cenario do * -;

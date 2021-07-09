@@ -16,10 +16,7 @@ int ft_print_out(char *buffer, va_list args)
             i += ft_move_forward(&buffer[i]);
         }
         else
-        {
-            write(1, &buffer[i], 1);
-            char_count++;
-        }
+            char_count += write_and_count(&buffer[i], 1);
     }
     return (char_count);
 }

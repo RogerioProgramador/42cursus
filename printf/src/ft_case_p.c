@@ -4,11 +4,14 @@ static char    *ft_ptr_prefix(char *pointer)
 {
     char    *result;
     size_t  i;
+    size_t  len;
 
     i = -1;
-    result = (char *)ft_calloc(sizeof(char), ft_strlen(pointer) + 3);
+    len = ft_strlen(pointer);
+    result = (char *)malloc(sizeof(char) * len + 3);
     result[0] = '0';
     result[1] = 'x';
+    result[len] = 0;
     while (pointer[++i])
         result[i + 2] = pointer[i];
     free(pointer);

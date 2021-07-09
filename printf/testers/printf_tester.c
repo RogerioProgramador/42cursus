@@ -1,26 +1,38 @@
-#include "ft_printf_lib.h"
+#include "../ft_printf_lib.h"
 
 void pointer_tester(char *pointer, int pointer_count)
 {
+    int i;
+
     printf("test %i\n", pointer_count);
-    ft_printf("ft_printf result: %p\n", pointer);
-    printf("printf    result: %p\n", pointer);
+    i = ft_printf("ft_printf result: %p", pointer);
+    ft_printf(" return %i\n", i);
+    i = printf("printf    result: %p", pointer);
+    printf(" return %i\n", i);
     printf("------------------------------------------\n");
 }
 
 void ux_tester(unsigned int a, int pointer_count)
 {
+    int i;
+
     printf("test %i\n", pointer_count);
-    ft_printf("ft_printf result: %x\n", a);
-    printf("printf    result: %x\n", a);
+    i = ft_printf("ft_printf result: %x", a);
+    ft_printf(" return %i\n", i);
+    i = printf("printf    result: %x", a);
+    printf(" return %i\n", i);
     printf("------------------------------------------\n");
 }
 
 void uX_tester(unsigned int a, int pointer_count)
 {
+    int i;
+
     printf("test %i\n", pointer_count);
-    ft_printf("ft_printf result: %X\n", a);
-    printf("printf    result: %X\n", a);
+    i = ft_printf("ft_printf result: %X", a);
+    ft_printf(" return %i\n", i);
+    i = printf("printf    result: %X", a);
+    printf(" return %i\n", i);
     printf("------------------------------------------\n");
 }
 

@@ -11,13 +11,13 @@
 # **************************************************************************** #
 
 all: make
-	gcc -Wall -Werror -Wextra -g libft/*.c src/*.c ft_printf.c teste.c
+	gcc -Wall -Werror -Wextra -g libft/*.c src/*.c ft_printf.c testers/teste.c
 
 b: make
-	gcc -g libft/*.c src/*.c ft_printf.c teste.c
+	gcc -g libft/*.c src/*.c ft_printf.c testers/teste.c
 
 tester: make
-	gcc -g libft/*.c src/*.c ft_printf.c printf_tester.c
+	gcc -g libft/*.c src/*.c ft_printf.c testers/printf_tester.c
 
 make:
 	cd libft; make; make clean

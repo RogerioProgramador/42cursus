@@ -39,9 +39,10 @@ char	*ft_utoa(unsigned int n)
 	char	            *stringnb;
 
 	cases = usize_length(n);
-	stringnb = ft_calloc(cases + 1, sizeof(char));
+	stringnb = (char *)malloc(cases + 1 * sizeof(char));
 	if (!stringnb)
 	    return (NULL);
+	stringnb[cases] = 0;
 	stringnb = nbr_to_string(stringnb, n, cases);
 	return (stringnb);
 }

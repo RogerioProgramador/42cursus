@@ -47,6 +47,7 @@ char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
 
 int     ft_move_forward(char *s);
+int     write_and_count(char *s, int count);
 void    ft_struct_start(printparameters *x);
 
 #endif
