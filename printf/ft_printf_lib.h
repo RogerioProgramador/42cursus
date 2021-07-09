@@ -42,6 +42,7 @@ char    *ft_case_d(va_list args);
 char    *ft_case_u(va_list args);
 char    *ft_case_x(va_list args);
 char    *ft_case_X(va_list args);
+char    *ft_case_percent(char c);
 
 char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);

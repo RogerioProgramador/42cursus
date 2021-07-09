@@ -40,6 +40,8 @@ char    *ft_hextoa(size_t nb)
     if (cases == 0)
         return (ft_strdup("0"));
     pointer = (char *)malloc((cases + 1) * sizeof(char));
+    if (!pointer)
+        return (NULL);
     pointer[cases] = 0;
     hex(pointer, --cases, nb);
     return (pointer);

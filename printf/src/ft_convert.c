@@ -6,8 +6,11 @@ int ft_convert(printparameters *params, va_list args)
     char    *pointer;
 
     pointer = ft_apply_specifiers(params->specifier, args);
-    pointer = ft_apply_flag(pointer, params);
-//    ft_applying_precision(pointer, params.presicion);
+    if (params->specifier != '%')
+    {
+        pointer = ft_apply_flag(pointer, params);
+        pointer = ft_apply_precision(pointer, params->presicion);
+    }
     char_count = write_and_count(pointer, ft_strlen(pointer));
     free(pointer);
     return (char_count);

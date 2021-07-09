@@ -19,8 +19,7 @@ char    *ft_apply_specifiers(char specifier, va_list args)
         pointer = ft_case_x(args);
     else if (specifier == 'X')
         pointer = ft_case_X(args);
-    /*
     else if (specifier == '%')
-        pointer = ft_applying_%(args);*/
+        pointer = ft_strdup("%");
     return (pointer);
 }
