@@ -41,7 +41,7 @@ char    *ft_case_p(va_list args);
 char    *ft_case_d(va_list args);
 char    *ft_case_u(va_list args);
 char    *ft_case_x(va_list args);
-char    *ft_case_X(va_list args);
+char    *ft_case_upperx(va_list args);
 
 char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
