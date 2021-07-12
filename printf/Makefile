@@ -26,7 +26,7 @@ SRCS =	src/ft_apply_flag.c				\
 		src/ft_case_p.c					\
 		src/ft_case_s.c					\
 		src/ft_case_u.c					\
-		src/ft_case_X.c					\
+		src/ft_case_upperx.c			\
 		src/ft_case_x.c					\
 		src/ft_convert.c				\
 		src/ft_hextoa.c					\
