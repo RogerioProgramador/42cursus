@@ -1,26 +1,27 @@
 #include "../include/ft_printf.h"
-
+#include <stdio.h>
 int ft_set_flag(char *s, printparameters *parameters)
 {
+    int i;
+
+    i = 0;
     if (*s == '0' && *(s + 1) == '-')
-    {
         parameters->flags = '-';
-        return (2);
-    }
     else
-    {
         parameters->flags = *s;
-        return (1);
-    }
+    while (ft_strchr("0-", s[i]))
+        i++;
+    return (i);
 }
 
 int ft_set_width(va_list args, char *s, printparameters *parameters)
 {
     int number;
 
+    printf ("|%c|\n", *s);
     if (*s == '*')
     {
-        number = va_arg(args,int);
+        number = va_arg(args, int);
         if (number < 0)
         {
             parameters->flags = '-';

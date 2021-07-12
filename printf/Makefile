@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 LIBPATH = ./libft
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS =
 AR = ar rcs
 RM = rm -f
 TESTER = testers/teste.c
