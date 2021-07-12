@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-char    *ft_case_upperx(va_list args)
+char    *ft_case_upperx(va_list args, int precision)
 {
     int     i;
     size_t  nb;
@@ -8,7 +8,7 @@ char    *ft_case_upperx(va_list args)
 
     i = -1;
     nb = va_arg(args, size_t);
-    if (nb == 0)
+    if (nb == 0 && precision)
         return (ft_strdup(""));
     pointer = ft_hextoa(nb);
     while (pointer[++i])

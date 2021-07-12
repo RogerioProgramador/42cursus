@@ -7,7 +7,7 @@ int ft_convert(printparameters *params, va_list args)
     char     czero;
 
     czero = 0;
-    pointer = ft_apply_specifiers(params->specifier, args);
+    pointer = ft_apply_specifiers(params, args);
     if (pointer == NULL)
         return (0);
     if (params->specifier == 'c')

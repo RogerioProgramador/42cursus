@@ -31,17 +31,17 @@ int     ft_printf(const char *input, ...);
 int     ft_isvalid(printparameters *parameters, char *pointer, va_list args);
 int     ft_convert(printparameters *params, va_list args);
 
-char    *ft_apply_specifiers(char specifier, va_list args);
+char    *ft_apply_specifiers(printparameters *params, va_list args);
 char    *ft_apply_flag(char *pointer, printparameters *parameters);
 char    *ft_apply_precision(char *pointer, printparameters *parameters);
 
 char    *ft_case_c(va_list args);
 char    *ft_case_s(va_list args);
 char    *ft_case_p(va_list args);
-char    *ft_case_d(va_list args);
-char    *ft_case_u(va_list args);
-char    *ft_case_x(va_list args);
-char    *ft_case_upperx(va_list args);
+char    *ft_case_d(va_list args, int precision);
+char    *ft_case_u(va_list args, int precision);
+char    *ft_case_x(va_list args, int precision);
+char    *ft_case_upperx(va_list args, int precision);
 
 char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
