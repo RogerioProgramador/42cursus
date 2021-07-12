@@ -50,8 +50,7 @@ static char    *ft_flagzero(char *pointer, int specifier, int width)
 char   *ft_apply_flag(char *ptr, printparameters *params)
 {
     char    *result;
-
-    /* cspdiuxX% */
+    
     if (params->precision_bool &&
         ft_strchr("diuxX", params->specifier) && (params->flags == '0'))
         params->flags = 'x';

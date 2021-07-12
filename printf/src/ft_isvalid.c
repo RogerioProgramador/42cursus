@@ -1,5 +1,5 @@
 #include "../include/ft_printf.h"
-#include <stdio.h>
+
 int ft_set_flag(char *s, printparameters *parameters)
 {
     int i;
@@ -18,7 +18,6 @@ int ft_set_width(va_list args, char *s, printparameters *parameters)
 {
     int number;
 
-    printf ("|%c|\n", *s);
     if (*s == '*')
     {
         number = va_arg(args, int);
