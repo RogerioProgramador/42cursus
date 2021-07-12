@@ -1,9 +1,11 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 char    *ft_case_d(va_list args)
 {
     int n;
 
     n = va_arg(args, int);
-    return(ft_itoa(n));
+    if (n == 0)
+        return (ft_strdup(""));
+    return (ft_itoa(n));
 }

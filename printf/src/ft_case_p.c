@@ -1,4 +1,4 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 static char    *ft_ptr_prefix(char *pointer)
 {
@@ -8,10 +8,9 @@ static char    *ft_ptr_prefix(char *pointer)
 
     i = -1;
     len = ft_strlen(pointer);
-    result = (char *)malloc(sizeof(char) * len + 3);
+    result = (char *)ft_calloc(len + 3, sizeof(char));
     result[0] = '0';
     result[1] = 'x';
-    result[len] = 0;
     while (pointer[++i])
         result[i + 2] = pointer[i];
     free(pointer);
@@ -24,6 +23,7 @@ char    *ft_case_p(va_list args)
     size_t  n;
 
     n = va_arg(args, size_t);
-    pointer = ft_ptr_prefix(ft_hextoa(n));
+    pointer = ft_hextoa(n);
+    pointer = ft_ptr_prefix(pointer);
     return (pointer);
 }

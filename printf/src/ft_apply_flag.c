@@ -1,20 +1,17 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
-static char    *ft_noflag(char *pointer, printparameters *parameters, char a)
+static char    *ft_flag(char *pointer, int width, char a)
 {
     char    *result;
     int     i;
-    int     width;
+    int     len;
     int     start;
 
     i = -1;
-    width = parameters->width;
-    if (width <= ft_strlen(pointer))
-    {
-        pointer = ft_strdup(pointer);
-        return (pointer);
-    }
-    start = width - ft_strlen(pointer);
+    len = ft_strlen(pointer);
+    start = width - len;
+    if (width <= len)
+        return (ft_strdup(pointer));
     result = (char *)malloc(sizeof(char) * width + 1);
     result[width] = 0;
     while (++i < start)
@@ -25,48 +22,47 @@ static char    *ft_noflag(char *pointer, printparameters *parameters, char a)
     return (result);
 }
 
-static char    *ft_flagzero(char *pointer, printparameters *parameters)
-{
-    char    specifier;
-
-    specifier = parameters->specifier;
-    if (specifier == 'c' || specifier == 's')
-        return (ft_noflag(pointer, parameters, ' '));
-    else
-        return (ft_noflag(pointer, parameters, '0'));
-}
-
-static char    *ft_flagminus(char *pointer, printparameters *parameters)
+static char    *ft_flagminus(char *pointer, int width)
 {
     char    *result;
     int     i;
-    int     width;
 
     i = -1;
-    width = parameters->width;
-    if (width <= ft_strlen(pointer))
-        return (pointer);
+    if (width <= (int)ft_strlen(pointer))
+        return (ft_strdup(pointer));
     result = (char *)malloc(sizeof(char) * width + 1);
     result[width] = 0;
     while (pointer[++i])
         result[i] = pointer[i];
     while (i < width)
-    {
-        result[i] = ' ';
-        i++;
-    }
+        result[i++] = ' ';
     return (result);
 }
 
-char   *ft_apply_flag(char *pointer, printparameters *parameters)
+static char    *ft_flagzero(char *pointer, int specifier, int width)
+{
+    if (specifier == 'c' || specifier == 's')
+        return (ft_flag(pointer, width, ' '));
+    else
+        return (ft_flag(pointer, width, '0'));
+}
+
+char   *ft_apply_flag(char *ptr, printparameters *params)
 {
     char    *result;
-    if (parameters->flags == '0')
-        result = ft_flagzero(pointer, parameters);
-    else if (parameters->flags == '-')
-        result = ft_flagminus(pointer, parameters);
+
+    /* cspdiuxX% */
+    if (params->precision_bool &&
+        ft_strchr("diuxX", params->specifier) && (params->flags == '0'))
+        params->flags = 'x';
+    if (params->flags == '0')
+        result = ft_flagzero(ptr, params->specifier, params->width);
+    else if (params->flags == '-')
+        result = ft_flagminus(ptr, params->width);
     else
-        result = ft_noflag(pointer, parameters, ' ');
-    free(pointer);
+        result = ft_flag(ptr, params->width, ' ');
+    if (ft_strchr("diuxX", params->specifier) && ft_strchr(result, '-'))
+        result = ft_negfirst(result);
+    free(ptr);
     return (result);
 }

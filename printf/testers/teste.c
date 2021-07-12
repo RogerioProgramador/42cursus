@@ -1,16 +1,31 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
+#
+
 
 int main(void)
 {
-	char *a = "teste";
-    int b = 3000;
-    unsigned int c = 30000;
+//	char *a = NULL;
+    int b = 0;
+//    int c = -30000;
 //	printf("%i\n", b);
 //	printf("%0030s", "teste");
 //	printf("\n");
     /* cspdiuxX% */
-    printf("resultado: |testando %-10.7ua %.3s %i|\n", c, a, b);
-    ft_printf("resultado: |testando %-10.7ua %.3s %i|\n", c, a, b);
+//    printf("resultado: |%.1f|\n", 392.654); //esse aqui é o bonus amigo, vai fazer mesmo?
+//    printf("resultado: |%042.28d|\n", b);
+//    ft_printf("resultado: |%042.28d|\n", b);
+
+//    printf("resultado: |%042d|\n", b);
+//    ft_printf("resultado: |%042d|\n", b);
+//
+//    printf("resultado: |%.28d|\n", b);
+//    ft_printf("resultado: |%.28d|\n", b);
+//
+    printf("resultado: |%.0i|\n", b);
+    ft_printf("resultado: |%.0i|\n", b);
+
+//    printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);
+//    ft_printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);
 //    ft_printf("resultado: %.0s", a);
 	//ft_printf("%c", a);
 //	printf("\n");

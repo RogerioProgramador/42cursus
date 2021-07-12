@@ -1,9 +1,10 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 void pointer_tester(char *pointer, int pointer_count)
 {
     int i;
 
+    i = 0;
     printf("test %i\n", pointer_count);
     i = ft_printf("ft_printf result: %p", pointer);
     ft_printf(" return %i\n", i);
@@ -16,6 +17,7 @@ void ux_tester(unsigned int a, int pointer_count)
 {
     int i;
 
+    i = 0;
     printf("test %i\n", pointer_count);
     i = ft_printf("ft_printf result: %x", a);
     ft_printf(" return %i\n", i);
@@ -28,6 +30,7 @@ void uX_tester(unsigned int a, int pointer_count)
 {
     int i;
 
+    i = 0;
     printf("test %i\n", pointer_count);
     i = ft_printf("ft_printf result: %X", a);
     ft_printf(" return %i\n", i);
@@ -36,27 +39,41 @@ void uX_tester(unsigned int a, int pointer_count)
     printf("------------------------------------------\n");
 }
 
-void percent_tester(unsigned int a, int pointer_count)
+void percent_tester(int pointer_count)
 {
     int i;
 
+    i = 0;
     printf("test %i\n", pointer_count);
-    i = ft_printf("ft_printf result: %%%%", a);
+    i = ft_printf("ft_printf result: %%%%");
     ft_printf(" return %i\n", i);
-    i = printf("printf    result: %%%%", a);
+    i = printf("printf    result: %%%%");
+    printf(" return %i\n", i);
+    printf("------------------------------------------\n");
+}
+
+void czero_tester(int pointer_count)
+{
+    int i;
+
+    i = 0;
+    printf("test %i\n", pointer_count);
+    i = ft_printf("ft_printf result: %c", 0);
+    ft_printf(" return %i\n", i);
+    i = printf("printf    result: %c", 0);
     printf(" return %i\n", i);
     printf("------------------------------------------\n");
 }
 
 int main(void)
 {
+    int pointer_count = 1;
     //Char
 
     //String
 
     //Pointers
     printf("\n---------------POINTERS-------------------\n");
-    int pointer_count = 1;
     pointer_tester("1", pointer_count++);
     pointer_tester("12", pointer_count++);
     pointer_tester("123", pointer_count++);
@@ -79,5 +96,9 @@ int main(void)
 
     //Percent
     printf("\n------------Percent as specifier----------\n");
-    percent_tester(1, pointer_count++);
+    percent_tester(pointer_count++);
+
+    printf("\n---------------Case c with 0--------------\n");
+    czero_tester(pointer_count++);
+
 }

@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct	print_params
 {
 	int	flags;
 	int	width;
-	int	presicion;
+	int	precision;
 	int precision_bool;
 	int	specifier;
 }				printparameters;
@@ -48,7 +48,10 @@ char    *ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
 
 int     ft_move_forward(char *s);
-int     write_and_count(char *s, int count);
+int     ft_write_and_count(char *s, int count, int czero);
+char    *ft_negfirst(char *s);
 void    ft_struct_start(printparameters *x);
+void    ft_czero(char *pointer, char *czero);
+
 
 #endif

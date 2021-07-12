@@ -1,10 +1,10 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 static char    *precision_for_strings(char *pointer, int precision)
 {
     char    *result;
     int     i;
-    if (precision >= ft_strlen(pointer))
+    if (precision >= (int)ft_strlen(pointer))
         return (pointer);
     result = (char *)malloc((precision + 1) * sizeof(char));
     result[precision] = 0;
@@ -43,8 +43,8 @@ char    *ft_apply_precision(char *pointer, printparameters *parameters)
     char    specifier;
 
     specifier = parameters->specifier;
-    precision  = parameters->presicion;
-    if (specifier == 'c' | specifier == 's')
+    precision  = parameters->precision;
+    if ((specifier == 'c') || (specifier == 's'))
         pointer = precision_for_strings(pointer, precision);
     else
         pointer = precision_for_numbers(pointer, precision);

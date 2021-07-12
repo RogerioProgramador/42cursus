@@ -1,4 +1,4 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 static size_t   hex_cases(size_t n)
 {

@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 static unsigned int	usize_length(unsigned int nb)
 {
-	if (nb < 0)
-		nb = nb * -1;
 	if (nb <= 9)
 		return (1);
 	else

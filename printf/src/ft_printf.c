@@ -1,4 +1,4 @@
-#include "ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 int ft_print_out(char *buffer, va_list args)
 {
@@ -16,7 +16,7 @@ int ft_print_out(char *buffer, va_list args)
             i += ft_move_forward(&buffer[i]);
         }
         else
-            char_count += write_and_count(&buffer[i], 1);
+            char_count += ft_write_and_count(&buffer[i], 1, 0);
     }
     return (char_count);
 }

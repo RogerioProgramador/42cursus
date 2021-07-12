@@ -10,17 +10,47 @@
 #                                                                              #
 # **************************************************************************** #
 
-all: make
-	gcc -Wall -Werror -Wextra -g libft/*.c src/*.c ft_printf.c testers/teste.c
+NAME = libftprintf.a
+LIBPATH = ./libft
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+AR = ar rcs
+RM = rm -f
+TESTER = testers/printf_tester.c
 
-b: make
-	gcc -g libft/*.c src/*.c ft_printf.c testers/teste.c
+SRCS =	src/ft_apply_flag.c				\
+		src/ft_apply_precision.c		\
+		src/ft_apply_specifiers.c		\
+		src/ft_case_c.c					\
+		src/ft_case_d.c					\
+		src/ft_case_p.c					\
+		src/ft_case_s.c					\
+		src/ft_case_u.c					\
+		src/ft_case_X.c					\
+		src/ft_case_x.c					\
+		src/ft_convert.c				\
+		src/ft_hextoa.c					\
+		src/ft_isvalid.c				\
+		src/ft_utils.c					\
+		src/ft_utoa.c					\
+		src/ft_printf.c
 
-tester: make
-	gcc -g libft/*.c src/*.c ft_printf.c testers/printf_tester.c
+OBJS = 		${SRCS:%.c=%.o}
 
-make:
-	cd libft; make; make clean
+all:		${NAME}
+
+${NAME}:	${OBJS}
+			make -C ${LIBPATH}
+			cp 		./libft/libft.a ./libftprintf.a
+			${AR}	${NAME}		${OBJS}
 
 clean:
-	@rm a.out;
+			${RM}	${OBJS}
+			make -C ${LIBPATH} clean
+
+fclean:		clean
+			${RM} 	${NAME}
+			make -C ${LIBPATH} fclean
+
+tester:		${NAME}
+			${CC} 	${CFLAGS}  ${TESTER} ${NAME}

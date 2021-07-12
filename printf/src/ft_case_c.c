@@ -1,4 +1,4 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 char    *ft_case_c(va_list args)
 {

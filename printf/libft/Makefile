@@ -72,9 +72,6 @@ all:		${NAME}
 ${NAME}:	${OBJ}
 			${AR}	${NAME}		${OBJ}
 
-%.o:		%.c
-			${CC}	${CFLAGS}	$< -o $@
-
 clean:
 			${RM}	${OBJ}		${BONUS_OBJ}
 

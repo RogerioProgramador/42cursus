@@ -1,4 +1,4 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 int ft_move_forward(char *s)
 {
@@ -10,16 +10,69 @@ int ft_move_forward(char *s)
     return (i);
 }
 
-int    write_and_count(char *s, int count)
+int    ft_write_and_count(char *s, int count, int czero)
 {
-    write(1, s, count);
+    int     i;
+    char    zero;
+
+    i = -1;
+    zero = 0;
+    if (czero == 0)
+        write(1, s, count);
+    else
+    {
+        while (++i < count)
+        {
+            if (s[i] == '0')
+                write(1, &zero, 1);
+            else
+                write(1, &s[i], 1);
+        }
+    }
     return (count);
 }
+
+void ft_czero(char *pointer, char *czero)
+{
+    if (pointer[0] == 0)
+    {
+        pointer[0] = '0';
+        *czero = 1;
+    }
+}
+
+char    *ft_negfirst(char *s)
+{
+    char    *pointer;
+    int     i;
+    int     j;
+
+    pointer = ft_strchr(s, '-');
+    *pointer = '0';
+    if (*s == ' ')
+    {
+        pointer = ft_strchr(s, '0');
+        *(pointer - 1) = '-';
+        return (s);
+    }
+    else
+    {
+        i = 0;
+        j = 0;
+        pointer = (char *)ft_calloc(ft_strlen(s) + 2, sizeof(char));
+        pointer[i] = '-';
+        while (s[j])
+            pointer[++i] = s[j++];
+        free(s);
+        return (pointer);
+    }
+}
+
 
 void ft_struct_start(printparameters *x)
 {
     x->flags = 'x';
     x->width = 0;
-    x->presicion = 0;
+    x->precision = 0;
     x->precision_bool = 0;
 }

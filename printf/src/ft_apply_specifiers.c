@@ -1,4 +1,4 @@
-#include "../ft_printf_lib.h"
+#include "../include/ft_printf_lib.h"
 
 char    *ft_apply_specifiers(char specifier, va_list args)
 {
