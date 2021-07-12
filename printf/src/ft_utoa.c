@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 static unsigned int	usize_length(unsigned int nb)
 {

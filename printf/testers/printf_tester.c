@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 void pointer_tester(char *pointer, int pointer_count)
 {

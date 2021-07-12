@@ -1,11 +1,12 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 #
 
 
 int main(void)
 {
-//	char *a = NULL;
-    int b = 0;
+    char b = 'a';
+    char *a = &b;
+    char *c = &a[0];
 //    int c = -30000;
 //	printf("%i\n", b);
 //	printf("%0030s", "teste");
@@ -21,8 +22,8 @@ int main(void)
 //    printf("resultado: |%.28d|\n", b);
 //    ft_printf("resultado: |%.28d|\n", b);
 //
-    printf("resultado: |%.0i|\n", b);
-    ft_printf("resultado: |%.0i|\n", b);
+//    printf("resultado: |%10p %-10p|\n", 0, 0);
+//    ft_printf("resultado: |%10p %-10p|\n", 0, 0);
 
 //    printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);
 //    ft_printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);

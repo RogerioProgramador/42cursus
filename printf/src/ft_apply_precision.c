@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 static char    *precision_for_strings(char *pointer, int precision)
 {

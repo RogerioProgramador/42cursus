@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 int ft_print_out(char *buffer, va_list args)
 {
@@ -21,14 +21,14 @@ int ft_print_out(char *buffer, va_list args)
     return (char_count);
 }
 
-int ft_printf(char *s, ...)
+int ft_printf(const char *input, ...)
 {
     va_list args;
     char    *buffer;
     int     printed;
 
-    buffer = ft_strdup(s);
-    va_start(args, s);
+    buffer = ft_strdup((char *)input);
+    va_start(args, input);
     printed = ft_print_out(buffer, args);
     va_end(args);
     free(buffer);

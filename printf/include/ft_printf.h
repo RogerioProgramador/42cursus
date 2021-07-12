@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 
 typedef struct	print_params
@@ -28,7 +27,7 @@ typedef struct	print_params
 	int	specifier;
 }				printparameters;
 
-int     ft_printf(char *s, ...);
+int     ft_printf(const char *input, ...);
 int     ft_isvalid(printparameters *parameters, char *pointer, va_list args);
 int     ft_convert(printparameters *params, va_list args);
 

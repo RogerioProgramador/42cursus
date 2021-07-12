@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 static char    *ft_flag(char *pointer, int width, char a)
 {

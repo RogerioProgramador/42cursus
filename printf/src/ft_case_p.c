@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 static char    *ft_ptr_prefix(char *pointer)
 {

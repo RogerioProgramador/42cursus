@@ -1,4 +1,4 @@
-#include "../include/ft_printf_lib.h"
+#include "../include/ft_printf.h"
 
 int ft_set_flag(char *s, printparameters *parameters)
 {
