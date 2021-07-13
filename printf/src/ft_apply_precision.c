@@ -44,7 +44,7 @@ char    *ft_apply_precision(char *pointer, printparameters *parameters)
 
     specifier = parameters->specifier;
     precision  = parameters->precision;
-    if ((specifier == 'c') || (specifier == 's'))
+    if ((specifier == 'c') || (specifier == 's') || (specifier == '%'))
         pointer = precision_for_strings(pointer, precision);
     else
         pointer = precision_for_numbers(pointer, precision);
