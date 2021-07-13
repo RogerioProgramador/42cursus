@@ -1,5 +1,6 @@
 #include "../include/ft_printf.h"
 
+
 static char    *precision_for_strings(char *pointer, int precision, char a)
 {
     char    *result;
@@ -17,12 +18,55 @@ static char    *precision_for_strings(char *pointer, int precision, char a)
     return (result);
 }
 
+static char    *ft_neg_prefix(char *pointer)
+{
+    char    *result;
+    size_t  i;
+    size_t  len;
+
+    i = -1;
+    len = ft_strlen(pointer);
+    result = (char *)ft_calloc(len + 2, sizeof(char));
+    result[0] = '-';
+    while (pointer[++i])
+        result[i + 1] = pointer[i];
+    free(pointer);
+    return (result);
+}
+
+static char    *precision_for_neg(char *pointer, int precision)
+{
+    char    *result;
+    char    *positive;
+    int     len;
+    int     i;
+
+    len = ft_strlen(pointer) - 1;
+    if (precision <= len)
+        return (pointer);
+    positive = ft_strdup(pointer + 1);
+    result = (char *)malloc((precision + 1) * sizeof(char));
+    result[precision] = 0;
+    len = precision - len;
+    i = -1;
+    while (++i < len)
+        result[i] = '0';
+    len = 0;
+    while (positive[len])
+        result[i++] = positive[len++];
+    free(positive);
+    free(pointer);
+    return (ft_neg_prefix(result));
+}
+
 static char    *precision_for_numbers(char *pointer, int precision)
 {
     char    *result;
     int     len;
     int     i;
 
+    if (ft_strchr(pointer, '-'))
+        return (precision_for_neg(pointer, precision));
     len = ft_strlen(pointer);
     if (precision <= len)
         return (pointer);

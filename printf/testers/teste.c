@@ -15,8 +15,8 @@ int main(void)
 //    printf("resultado: |%.1f|\n", 392.654); //esse aqui é o bonus amigo, vai fazer mesmo?
 //    printf("resultado: |%042.28d|\n", b);
 //    ft_printf("resultado: |%042.28d|\n", b);
-    ft_printf("%-10.6d", -5000);
-    printf("%-10.6d", -5000);
+    ft_printf("|%-10.5d|\n", -5000);
+    printf("|%-10.5d|\n", -5000);
 //    printf("resultado: |%042d|\n", b);
 //    ft_printf("resultado: |%042d|\n", b);
 //
