@@ -5,7 +5,8 @@ static char    *precision_for_strings(char *pointer, int precision)
     char    *result;
     int     i;
 
-    if (precision >= ft_strlen(pointer) || precision <= 0)
+    i = ft_strlen(pointer);
+    if (precision >= i || precision <= 0)
         return (pointer);
     result = (char *)malloc((precision + 1) * sizeof(char));
     result[precision] = 0;
