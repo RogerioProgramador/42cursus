@@ -10,6 +10,7 @@ int main(void)
 //    int c = -30000;
 //	printf("%i\n", b);
 //	printf("%0030s", "teste");
+int b = 3000;
 //	printf("\n");
     /* cspdiuxX% */
 //    printf("resultado: |%.1f|\n", 392.654); //esse aqui é o bonus amigo, vai fazer mesmo?
@@ -17,12 +18,16 @@ int main(void)
 //    ft_printf("resultado: |%042.28d|\n", b);
     ft_printf("|%-10.5d|\n", -5000);
     printf("|%-10.5d|\n", -5000);
-//    printf("resultado: |%042d|\n", b);
-//    ft_printf("resultado: |%042d|\n", b);
-//
-//    printf("resultado: |%.28d|\n", b);
-//    ft_printf("resultado: |%.28d|\n", b);
-//
+
+   ft_printf("|%020d|\n", -42000);
+   printf("|%020d|\n", -42000);
+
+    printf("resultado: |%042d|\n", b);
+    ft_printf("resultado: |%042d|\n", b);
+
+    printf("resultado: |%.28d|\n", b);
+    ft_printf("resultado: |%.28d|\n", b);
+
 //    printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
 //    ft_printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
 //

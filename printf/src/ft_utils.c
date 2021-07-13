@@ -48,6 +48,12 @@ char    *ft_negfirst(char *s,printparameters *params)
     int     j;
 
     i = ft_strlen(s);
+    if (params->precision == 0)
+    {
+        *(ft_strchr(s, '-')) = '0';
+        *(ft_strchr(s, '0')) = '-';
+        return (s);
+    }
     if ((!params->precision_bool) || (((params->precision) < i) && (ft_strchr("di", params->specifier))))
         return (s);
     pointer = ft_strchr(s, '-');
