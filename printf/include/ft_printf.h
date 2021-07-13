@@ -10,48 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_LIB_H
-# define FT_PRINTF_LIB_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include <stdio.h>
 
-typedef struct	print_params
+typedef struct t_parameters
 {
 	int	flags;
 	int	width;
 	int	precision;
-	int precision_bool;
+	int	precision_bool;
 	int	specifier;
-}				printparameters;
+}				t_params;
 
-int     ft_printf(const char *input, ...);
-int     ft_isvalid(printparameters *parameters, char *pointer);
-int     ft_convert(printparameters *params, va_list args);
+int		ft_printf(const char *input, ...);
+int		ft_isvalid(t_params *parameters, char *pointer);
+int		ft_convert(t_params *params, va_list args);
 
-char    *ft_apply_specifiers(printparameters *params, va_list args);
-char    *ft_apply_flag(char *pointer, printparameters *parameters);
-char    *ft_apply_precision(char *pointer, printparameters *parameters);
+char	*ft_apply_specifiers(t_params *params, va_list args);
+char	*ft_apply_flag(char *pointer, t_params *parameters);
+char	*ft_apply_precision(char *pointer, t_params *parameters);
 
-char    *ft_case_c(va_list args);
-char    *ft_case_s(va_list args);
-char    *ft_case_p(va_list args);
-char    *ft_case_d(va_list args, int precision);
-char    *ft_case_u(va_list args, int precision);
-char    *ft_case_x(va_list args, int precision);
-char    *ft_case_upperx(va_list args, int precision);
+char	*ft_case_c(va_list args);
+char	*ft_case_s(va_list args);
+char	*ft_case_p(va_list args);
+char	*ft_case_d(va_list args, int precision);
+char	*ft_case_u(va_list args, int precision);
+char	*ft_case_x(va_list args, int precision);
+char	*ft_case_upperx(va_list args, int precision);
 
-char    *ft_hextoa(size_t nb);
+char	*ft_hextoa(size_t nb);
 char	*ft_utoa(unsigned int n);
 
-int     ft_move_forward(char *s);
-int     ft_write_and_count(char *s, int count, int czero);
-char    *ft_negfirst(char *s, printparameters *params);
-void    ft_struct_start(printparameters *x);
-void    ft_czero(char *pointer, char *czero);
-
+int		ft_move_forward(char *s);
+int		ft_write_and_count(char *s, int count, int czero);
+char	*ft_negfirst(char *s, t_params *params);
+void	ft_czero(char *pointer, char *czero);
 
 #endif

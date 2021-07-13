@@ -1,29 +1,29 @@
 #include "../include/ft_printf.h"
 
-static char    *ft_ptr_prefix(char *pointer)
+static char	*ft_ptr_prefix(char *pointer)
 {
-    char    *result;
-    size_t  i;
-    size_t  len;
+	char	*result;
+	size_t	i;
+	size_t	len;
 
-    i = -1;
-    len = ft_strlen(pointer);
-    result = (char *)ft_calloc(len + 3, sizeof(char));
-    result[0] = '0';
-    result[1] = 'x';
-    while (pointer[++i])
-        result[i + 2] = pointer[i];
-    free(pointer);
-    return (result);
+	i = -1;
+	len = ft_strlen(pointer);
+	result = (char *)ft_calloc(len + 3, sizeof(char));
+	result[0] = '0';
+	result[1] = 'x';
+	while (pointer[++i])
+		result[i + 2] = pointer[i];
+	free(pointer);
+	return (result);
 }
 
-char    *ft_case_p(va_list args)
+char	*ft_case_p(va_list args)
 {
-    char    *pointer;
-    size_t  n;
+	char	*pointer;
+	size_t	n;
 
-    n = va_arg(args, size_t);
-    pointer = ft_hextoa(n);
-    pointer = ft_ptr_prefix(pointer);
-    return (pointer);
+	n = va_arg(args, size_t);
+	pointer = ft_hextoa(n);
+	pointer = ft_ptr_prefix(pointer);
+	return (pointer);
 }

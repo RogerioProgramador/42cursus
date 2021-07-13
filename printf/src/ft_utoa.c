@@ -33,15 +33,14 @@ static char	*nbr_to_string(char *stringnb, unsigned int n, unsigned int cases)
 
 char	*ft_utoa(unsigned int n)
 {
-    unsigned int		cases;
-	char	            *stringnb;
+	unsigned int		cases;
+	char				*stringnb;
 
 	cases = usize_length(n);
 	stringnb = (char *)malloc(cases + 1 * sizeof(char));
 	if (!stringnb)
-	    return (NULL);
+		return (NULL);
 	stringnb[cases] = 0;
 	stringnb = nbr_to_string(stringnb, n, cases);
 	return (stringnb);
 }
-

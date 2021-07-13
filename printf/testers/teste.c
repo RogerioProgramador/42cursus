@@ -21,9 +21,8 @@ int b = 3000;
 
    ft_printf("|%020d|\n", -42000);
    printf("|%020d|\n", -42000);
-
-    printf("resultado: |%042d|\n", b);
-    ft_printf("resultado: |%042d|\n", b);
+	printf("resultado: |%042d|\n", b);
+	ft_printf("resultado: |%042d|\n", b);
 
     printf("resultado: |%.28d|\n", b);
     ft_printf("resultado: |%.28d|\n", b);

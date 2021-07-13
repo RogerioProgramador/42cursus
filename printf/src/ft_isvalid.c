@@ -1,50 +1,53 @@
 #include "../include/ft_printf.h"
 
-int ft_set_flag(char *s, printparameters *parameters)
+static void	ft_struct_start(t_params *x)
 {
-    int i;
-
-    i = 0;
-    if (*s == '0' && *(s + 1) == '-')
-        parameters->flags = '-';
-    else
-        parameters->flags = *s;
-    while (ft_strchr("0-", s[i]))
-        i++;
-    return (i);
+	x->flags = 'x';
+	x->width = 0;
+	x->precision = 0;
+	x->precision_bool = 0;
 }
 
-int ft_set_width(char *s)
+static int	ft_set_flag(char *s, t_params *parameters)
 {
-    return (ft_atoi(s));
+	int	i;
+
+	i = 0;
+	if (*s == '0' && *(s + 1) == '-')
+		parameters->flags = '-';
+	else
+		parameters->flags = *s;
+	while (ft_strchr("0-", s[i]))
+		i++;
+	return (i);
 }
 
-static int  ft_set_precision(char *s)
+static int	ft_set_number(char *s)
 {
-    return (ft_atoi(s));
+	return (ft_atoi(s));
 }
 
-int ft_isvalid(printparameters *parameters, char *pointer)
+int	ft_isvalid(t_params *parameters, char *pointer)
 {
-    ft_struct_start(parameters);
-    if (*pointer && ft_strchr("0-", *pointer))
-        pointer += ft_set_flag(&(*pointer), parameters);//função nova para verificar caractere + 1
-    if (*pointer && ft_strchr("0123456789", *pointer))
-    {
-        parameters->width = ft_set_width(pointer++);//cenario do * -;
-        while (ft_strchr("0123456789", *pointer))
-            pointer++;
-    }
-    if (*pointer && *pointer == '.')
-    {
-        parameters->precision_bool = 1;
-        parameters->precision = ft_set_precision(++pointer);//começar o precision pra saber como é.
-        while (ft_strchr("0123456789*", *pointer))
-            pointer++;
-    }
-    if (*pointer && ft_strchr("cspdiuxX%", *pointer))
-        parameters->specifier = *pointer;
-    else
-        return (0);
-    return (1);
+	ft_struct_start(parameters);
+	if (*pointer && ft_strchr("0-", *pointer))
+		pointer += ft_set_flag(&(*pointer), parameters);
+	if (*pointer && ft_strchr("0123456789", *pointer))
+	{
+		parameters->width = ft_set_number(pointer++);
+		while (ft_strchr("0123456789", *pointer))
+			pointer++;
+	}
+	if (*pointer && *pointer == '.')
+	{
+		parameters->precision_bool = 1;
+		parameters->precision = ft_set_number(++pointer);
+		while (ft_strchr("0123456789*", *pointer))
+			pointer++;
+	}
+	if (*pointer && ft_strchr("cspdiuxX%", *pointer))
+		parameters->specifier = *pointer;
+	else
+		return (0);
+	return (1);
 }
