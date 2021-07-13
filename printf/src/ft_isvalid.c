@@ -21,7 +21,7 @@ int ft_set_width(char *s)
 
 static int  ft_set_precision(char *s)
 {
-    return(ft_atoi(s));
+    return (ft_atoi(s));
 }
 
 int ft_isvalid(printparameters *parameters, char *pointer)
