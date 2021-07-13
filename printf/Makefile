@@ -54,3 +54,5 @@ fclean:		clean
 
 tester:		${NAME}
 			${CC} 	${CFLAGS}  ${TESTER} ${NAME}
+
+bonus:		all
