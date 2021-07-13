@@ -1,12 +1,12 @@
 #include "../include/ft_printf.h"
 
-static char    *precision_for_strings(char *pointer, int precision)
+static char    *precision_for_strings(char *pointer, int precision, char a)
 {
     char    *result;
     int     i;
 
     i = ft_strlen(pointer);
-    if (precision >= i || precision <= 0)
+    if ((precision >= i) || precision < 0 || (precision <= 0 && a == '%'))
         return (pointer);
     result = (char *)malloc((precision + 1) * sizeof(char));
     result[precision] = 0;
@@ -47,7 +47,7 @@ char    *ft_apply_precision(char *pointer, printparameters *parameters)
     specifier = parameters->specifier;
     precision  = parameters->precision;
     if ((specifier == 'c') || (specifier == 's') || (specifier == '%'))
-        pointer = precision_for_strings(pointer, precision);
+        pointer = precision_for_strings(pointer, precision, specifier);
     else
         pointer = precision_for_numbers(pointer, precision);
     return (pointer);
