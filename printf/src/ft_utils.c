@@ -78,5 +78,5 @@ char	*ft_negfirst(char *s, t_params *params)
 		return (s);
 	}
 	else
-		ft_elseneg(pointer, s);
+		return (ft_elseneg(pointer, s));
 }
