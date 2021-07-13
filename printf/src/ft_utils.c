@@ -48,7 +48,7 @@ char    *ft_negfirst(char *s,printparameters *params)
     int     j;
 
     i = ft_strlen(s);
-    if ((!params->precision_bool))
+    if ((!params->precision_bool) || ((params->precision) < i))
         return (s);
     pointer = ft_strchr(s, '-');
     *pointer = '0';
