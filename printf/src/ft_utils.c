@@ -59,17 +59,14 @@ char	*ft_elseneg(char *pointer, char *s)
 char	*ft_negfirst(char *s, t_params *params)
 {
 	char	*pointer;
-	int		i;
-	int		j;
 
-	i = ft_strlen(s);
 	if (params->precision == 0)
 	{
 		*(ft_strchr(s, '-')) = '0';
 		*(ft_strchr(s, '0')) = '-';
 		return (s);
 	}
-	if ((!params->precision_bool) || (((params->precision) < i)
+	if ((!params->precision_bool) || (((params->precision) < ft_strlen(s))
 			&& (ft_strchr("di", params->specifier))))
 		return (s);
 	pointer = ft_strchr(s, '-');
