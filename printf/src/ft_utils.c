@@ -66,7 +66,7 @@ char	*ft_negfirst(char *s, t_params *params)
 		*(ft_strchr(s, '0')) = '-';
 		return (s);
 	}
-	if ((!params->precision_bool) || (((params->precision) < ft_strlen(s))
+	if ((!params->precision_bool) || (((params->precision) < (int)ft_strlen(s))
 			&& (ft_strchr("di", params->specifier))))
 		return (s);
 	pointer = ft_strchr(s, '-');
