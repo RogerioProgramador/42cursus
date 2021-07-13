@@ -41,12 +41,14 @@ void ft_czero(char *pointer, char *czero)
     }
 }
 
-char    *ft_negfirst(char *s)
+char    *ft_negfirst(char *s,printparameters *params)
 {
     char    *pointer;
     int     i;
     int     j;
 
+    if (!params->precision_bool)
+        return (s);
     pointer = ft_strchr(s, '-');
     *pointer = '0';
     if (*s == ' ')

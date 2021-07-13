@@ -10,7 +10,7 @@ int ft_print_out(char *buffer, va_list args)
     char_count = 0;
     while (buffer[++i])
     {
-        if (buffer[i] == '%' && ft_isvalid(&parameters, &buffer[i + 1], args))
+        if (buffer[i] == '%' && ft_isvalid(&parameters, &buffer[i + 1]))
         {
             char_count += ft_convert(&parameters, args);
             i += ft_move_forward(&buffer[i]);

@@ -22,11 +22,11 @@ int main(void)
 //    printf("resultado: |%.28d|\n", b);
 //    ft_printf("resultado: |%.28d|\n", b);
 //
-    printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
-    ft_printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
+//    printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
+//    ft_printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
 
-    printf("|%-0*.10u|\n", 21, 2022);
-    ft_printf("|%-0*.10u|\n", 21, 2022);
+    printf("|%10d|\n", -1234);
+    ft_printf("|%10d|\n", -1234);
 
 //    printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);
 //    ft_printf("resultado: |testando %-10.7ua %.3s %50.42i|\n", c, a, c);

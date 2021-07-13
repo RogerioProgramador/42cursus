@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/printf/ft_printf_tester" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/printf/printfTester" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/printf/tester" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/printf/tripouille_tester" vcs="Git" />

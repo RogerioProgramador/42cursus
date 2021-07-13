@@ -28,7 +28,7 @@ typedef struct	print_params
 }				printparameters;
 
 int     ft_printf(const char *input, ...);
-int     ft_isvalid(printparameters *parameters, char *pointer, va_list args);
+int     ft_isvalid(printparameters *parameters, char *pointer);
 int     ft_convert(printparameters *params, va_list args);
 
 char    *ft_apply_specifiers(printparameters *params, va_list args);
@@ -48,7 +48,7 @@ char	*ft_utoa(unsigned int n);
 
 int     ft_move_forward(char *s);
 int     ft_write_and_count(char *s, int count, int czero);
-char    *ft_negfirst(char *s);
+char    *ft_negfirst(char *s, printparameters *params);
 void    ft_struct_start(printparameters *x);
 void    ft_czero(char *pointer, char *czero);
 

@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS =
 AR = ar rcs
 RM = rm -f
-TESTER = testers/printf_tester.c
+TESTER = testers/teste.c
 
 SRCS =	src/ft_apply_flag.c				\
 		src/ft_apply_precision.c		\

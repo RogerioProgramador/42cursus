@@ -61,7 +61,7 @@ char   *ft_apply_flag(char *ptr, printparameters *params)
     else
         result = ft_flag(ptr, params->width, ' ');
     if (ft_strchr("diuxX", params->specifier) && ft_strchr(result, '-'))
-        result = ft_negfirst(result);
+        result = ft_negfirst(result, params);
     free(ptr);
     return (result);
 }

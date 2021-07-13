@@ -14,47 +14,31 @@ int ft_set_flag(char *s, printparameters *parameters)
     return (i);
 }
 
-int ft_set_width(va_list args, char *s, printparameters *parameters)
+int ft_set_width(char *s)
 {
-    int number;
-
-    if (*s == '*')
-    {
-        number = va_arg(args, int);
-        if (number < 0)
-        {
-            parameters->flags = '-';
-            return (number * -1);
-        }
-        return (number);
-    }
-    else
-        return (ft_atoi(s));
+    return (ft_atoi(s));
 }
 
-static int  ft_set_precision(va_list args, char *s)
+static int  ft_set_precision(char *s)
 {
-    if (*s == '*')
-        return(va_arg(args, int));
-    else
-        return(ft_atoi(s));
+    return(ft_atoi(s));
 }
 
-int ft_isvalid(printparameters *parameters, char *pointer, va_list args)
+int ft_isvalid(printparameters *parameters, char *pointer)
 {
     ft_struct_start(parameters);
     if (*pointer && ft_strchr("0-", *pointer))
         pointer += ft_set_flag(&(*pointer), parameters);//função nova para verificar caractere + 1
-    if (*pointer && ft_strchr("0123456789*", *pointer))
+    if (*pointer && ft_strchr("0123456789", *pointer))
     {
-        parameters->width = ft_set_width(args, pointer++, parameters);//cenario do * -;
-        while (ft_strchr("0123456789*", *pointer))
+        parameters->width = ft_set_width(pointer++);//cenario do * -;
+        while (ft_strchr("0123456789", *pointer))
             pointer++;
     }
     if (*pointer && *pointer == '.')
     {
         parameters->precision_bool = 1;
-        parameters->precision = ft_set_precision(args, ++pointer);//começar o precision pra saber como é.
+        parameters->precision = ft_set_precision(++pointer);//começar o precision pra saber como é.
         while (ft_strchr("0123456789*", *pointer))
             pointer++;
     }
