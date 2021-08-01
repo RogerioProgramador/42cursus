@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsiqueir <rsiqueir@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/13 04:37:24 by rsiqueir          #+#    #+#             */
+/*   Updated: 2021/04/13 19:55:21 by rsiqueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_atoi(char *str)
+{
+	int	res;
+	int	sign;
+	int	i;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while ((*str == '\t') || (*str == '\v') ||
+			(*str == '\f') || (*str == '\r') ||
+			(*str == ' ') || (*str == '\n'))
+		str++;
+	while (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str && str[i] >= '0' && *str <= '9')
+	{
+		res = (res * 10) + (*str - '0');
+		str++;
+	}
+	return (res * sign);
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int		ft_atoi(char *str);
+
+void	ft_atoi_like_test(char *str)
+{
+	int buff;
+	int ft_buff;
+
+	buff = atoi(str);
+	ft_buff = ft_atoi(str);
+	if (buff != ft_buff)
+		printf("> KO, invalid int value returned. expected: %d got: %d\n", buff, ft_buff);
+	else
+		printf("> OK. result: %d\n", ft_buff);
+}
+
+void	ft_atoi_unlike_test(char *str, int expected_result)
+{
+	int ft_buff;
+
+	ft_buff = ft_atoi(str);
+	if (ft_buff != expected_result)
+		printf("> KO, invalid int value returned expected: %d got: %d\n", expected_result, ft_buff);
+	else
+		printf("> OK, result: %d\n", ft_buff);
+}
+
+int		main(void)
+{
+	char *str;
+
+	// quando o comportamento e igual ao de atoi
+	str = " \n \t \r \v +1234567asd";
+	ft_atoi_like_test(str);
+	str = " \n \t\f\r \v -1234b67asd";
+	ft_atoi_like_test(str);
+	// quando o comportamento e diferente ao de atoi
+	str = " \n \t \r \v --+-+-+-2147483648asd";
+	ft_atoi_unlike_test(str, -2147483648);
+	str = " \n \t\f\r \v -++-+-++1234b67asd";
+	ft_atoi_unlike_test(str, -1234);
+	return (0);
+}
