@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_lib.h                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+        */
+/*   By: rogerio <rogerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 05:47:09 by rogeriorslf       #+#    #+#             */
-/*   Updated: 2021/06/12 16:44:07 by rogeriorslf      ###   ########.fr       */
+/*   Updated: 2021/08/05 10:56:16 by rogerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ char	*ft_case_u(va_list args, int precision);
 char	*ft_case_x(va_list args, int precision);
 char	*ft_case_upperx(va_list args, int precision);
 
-char	*ft_hextoa(size_t nb);
+char	*ft_hextoa(unsigned long nb);
 char	*ft_utoa(unsigned int n);
+char	*ft_uitoa(unsigned int nb);
 
 int		ft_move_forward(char *s);
 int		ft_write_and_count(char *s, int count, int czero);

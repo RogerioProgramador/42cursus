@@ -10,7 +10,7 @@ char	*ft_case_upperx(va_list args, int precision)
 	nb = va_arg(args, size_t);
 	if (nb == 0 && precision)
 		return (ft_strdup(""));
-	pointer = ft_hextoa(nb);
+	pointer = ft_uitoa(nb);
 	while (pointer[++i])
 		pointer[i] = ft_toupper(pointer[i]);
 	return (pointer);

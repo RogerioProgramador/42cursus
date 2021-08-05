@@ -16,16 +16,29 @@ int b = 3000;
 //    printf("resultado: |%.1f|\n", 392.654); //esse aqui é o bonus amigo, vai fazer mesmo?
 //    printf("resultado: |%042.28d|\n", b);
 //    ft_printf("resultado: |%042.28d|\n", b);
-    ft_printf("|%-10.5d|\n", -5000);
-    printf("|%-10.5d|\n", -5000);
 
-   ft_printf("|%020d|\n", -42000);
-   printf("|%020d|\n", -42000);
-	printf("resultado: |%042d|\n", b);
-	ft_printf("resultado: |%042d|\n", b);
+    // ft_printf(" printf fake: %x ", LONG_MIN);
+    ft_printf("\n printf fake: %x\n ", 4294967295);
+    ft_printf(" printf fake: %x\n ", 18446744073709551615);
+    ft_printf(" printf fake: %x\n ", 9223372036854775807LL);
+    // ft_printf(" printf fake: %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 
-    printf("resultado: |%.28d|\n", b);
-    ft_printf("resultado: |%.28d|\n", b);
+	// printf(" printf original: %x ", LONG_MIN);
+    printf(" printf original: %x\n ", 4294967295);
+    printf(" printf original: %x\n ", 18446744073709551615);
+    printf(" printf original: %x\n ", 9223372036854775807LL);
+    // printf(" printf original: %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+
+// ft_printf("|%-10.5d|\n", -5000);
+//     printf("|%-10.5d|\n", -5000);
+
+//    ft_printf("|%020d|\n", -42000);
+//    printf("|%020d|\n", -42000);
+// 	printf("resultado: |%042d|\n", b);
+// 	ft_printf("resultado: |%042d|\n", b);
+
+//     printf("resultado: |%.28d|\n", b);
+//     ft_printf("resultado: |%.28d|\n", b);
 
 //    printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);
 //    ft_printf("|%-0*.10u*0 0*%-0*.0u*0 |\n", 21, 2022, 21, -1011);

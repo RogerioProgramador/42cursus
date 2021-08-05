@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rogeriorslf <rogeriorslf@student.42.fr>    +#+  +:+       +#+         #
+#    By: rogerio <rogerio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/11 05:54:15 by rogeriorslf       #+#    #+#              #
-#    Updated: 2021/06/11 07:35:45 by rogeriorslf      ###   ########.fr        #
+#    Updated: 2021/08/05 11:05:13 by rogerio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS =	src/ft_apply_flag.c				\
 		src/ft_case_x.c					\
 		src/ft_convert.c				\
 		src/ft_hextoa.c					\
+		src/ft_uitoa.c					\
 		src/ft_isvalid.c				\
 		src/ft_utils.c					\
 		src/ft_utoa.c					\
@@ -54,5 +55,9 @@ fclean:		clean
 
 tester:		${NAME}
 			${CC} 	${CFLAGS}  ${TESTER} ${NAME}
-
+git:		
+	git add .
+	git commit -m"update"
+	git push
+	
 bonus:		all
