@@ -14,19 +14,19 @@ int b = 3000;
 //	printf("\n");
     /* cspdiuxX% */
 //    printf("resultado: |%.1f|\n", 392.654); //esse aqui é o bonus amigo, vai fazer mesmo?
-//    printf("resultado: |%042.28d|\n", b);
-//    ft_printf("resultado: |%042.28d|\n", b);
+   printf("resultado: |%p|\n", b);
+   ft_printf("resultado: |%p|\n", b);
 
-    // ft_printf(" printf fake: %x ", LONG_MIN);
-    ft_printf("\n printf fake: %x\n ", 4294967295);
-    ft_printf(" printf fake: %x\n ", 18446744073709551615);
-    ft_printf(" printf fake: %x\n ", 9223372036854775807LL);
-    // ft_printf(" printf fake: %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+    // // ft_printf(" printf fake: %x ", LONG_MIN);
+    // ft_printf("\n printf fake: %x\n ", 4294967295);
+    // ft_printf(" printf fake: %x\n ", 18446744073709551615);
+    // ft_printf(" printf fake: %x\n ", 9223372036854775807LL);
+    // // ft_printf(" printf fake: %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 
-	// printf(" printf original: %x ", LONG_MIN);
-    printf(" printf original: %x\n ", 4294967295);
-    printf(" printf original: %x\n ", 18446744073709551615);
-    printf(" printf original: %x\n ", 9223372036854775807LL);
+	// // printf(" printf original: %x ", LONG_MIN);
+    // printf(" printf original: %x\n ", 4294967295);
+    // printf(" printf original: %x\n ", 18446744073709551615);
+    // printf(" printf original: %x\n ", 9223372036854775807LL);
     // printf(" printf original: %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 
 // ft_printf("|%-10.5d|\n", -5000);

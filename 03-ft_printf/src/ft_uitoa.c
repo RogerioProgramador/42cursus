@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rogerio <rogerio@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/05 11:43:53 by rogerio           #+#    #+#             */
+/*   Updated: 2021/08/05 11:44:25 by rogerio          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
 static unsigned int	hex_cases(unsigned int n)
@@ -33,7 +45,7 @@ static void	hex(char *pointer, unsigned int cases, unsigned int nb)
 
 char	*ft_uitoa(unsigned int nb)
 {
-	char	*pointer;
+	char			*pointer;
 	unsigned int	cases;
 
 	cases = hex_cases(nb);

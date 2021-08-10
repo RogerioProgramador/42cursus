@@ -6,7 +6,7 @@
 #    By: rogerio <rogerio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/11 05:54:15 by rogeriorslf       #+#    #+#              #
-#    Updated: 2021/08/05 11:05:13 by rogerio          ###   ########.fr        #
+#    Updated: 2021/08/06 14:03:12 by rogerio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,28 +36,23 @@ SRCS =	src/ft_apply_flag.c				\
 		src/ft_utoa.c					\
 		src/ft_printf.c
 
-OBJS = 		${SRCS:%.c=%.o}
+OBJS =		${SRCS:%.c=%.o}
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			make -C ${LIBPATH}
-			cp 		./libft/libft.a ./libftprintf.a
-			${AR}	${NAME}		${OBJS}
+			make	-C ${LIBPATH}
+			cp		./libft/libft.a	./libftprintf.a
+			${AR}	${NAME}			${OBJS}
 
 clean:
-			${RM}	${OBJS}
 			make -C ${LIBPATH} clean
+			${RM}	${OBJS}
 
 fclean:		clean
 			${RM} 	${NAME}
 			make -C ${LIBPATH} fclean
 
-tester:		${NAME}
-			${CC} 	${CFLAGS}  ${TESTER} ${NAME}
-git:		
-	git add .
-	git commit -m"update"
-	git push
-	
-bonus:		all
+re: fclean all
+
+bonus: all
